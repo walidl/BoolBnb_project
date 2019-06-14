@@ -16,12 +16,12 @@ class CreateRentalsTable extends Migration
         Schema::create('rentals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->integer('rooms');
-            $table->integer('bathrooms');
-            $table->integer('bathrooms');
-            $table->float('square_meters',5,2);
+            $table->integer('rooms')->unsigned();
+            $table->integer('bathrooms')->unsigned();
+            $table->integer('bedrooms')->unsigned();
+            $table->float('square_meters',5,2)->unsigned();
             $table->string('address');
-            $image->string('image');
+            $table->string('image');
             $table->timestamps();
         });
     }
