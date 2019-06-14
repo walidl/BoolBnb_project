@@ -14,8 +14,11 @@ class CreateSponsoredRoomsTable extends Migration
     public function up()
     {
         Schema::create('sponsored_rooms', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+          $table->bigIncrements('id');
+          $table->bigInteger('sponsor_id')->unsigned()->index();
+          $table->bigInteger('rental_id')->unsigned()->index();
+          $table->date('end_date');
+          $table->timestamps();
         });
     }
 
