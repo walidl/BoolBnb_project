@@ -9,9 +9,8 @@
       <h1>prova</h1>
       <h2>Ciao Mondo!</h2>
       <h4>Hello World!</h4>
-      <h1>Ciao</h1>
-      <h1>Sara</h1>
       <h5>PROVA</h5>
       <h1>ProvaSARA2</h1>
+      <h1>Sara</h1>
   </body>
 </html>
