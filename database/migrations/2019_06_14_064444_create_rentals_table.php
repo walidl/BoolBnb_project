@@ -15,6 +15,13 @@ class CreateRentalsTable extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->integer('rooms')->unsigned();
+            $table->integer('bathrooms')->unsigned();
+            $table->integer('bedrooms')->unsigned();
+            $table->float('square_meters',5,2)->unsigned();
+            $table->string('address');
+            $table->string('image');
             $table->timestamps();
         });
     }
