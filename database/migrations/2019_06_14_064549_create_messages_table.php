@@ -15,7 +15,10 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('content');
+            $table->text('sent_date');
             $table->timestamps();
+
         });
     }
 
