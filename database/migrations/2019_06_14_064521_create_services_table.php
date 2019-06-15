@@ -13,10 +13,44 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-        });
+      Schema::create('services', function (Blueprint $table) {
+          $table->bigIncrements('id');
+          $table->string('name');
+          $table->string('description');
+          $table->string('icon');
+          $table->timestamps();
+      });
+
+      DB::table('services')->insert(
+      [
+       'name' => 'Wi-Fi',
+       'description' => 'Wi-Fi connection available',
+       'icon' => 'fas fa-wifi'
+
+     ]);
+
+     DB::table('services')->insert(
+     [
+      'name' => 'TV',
+      'description' => 'Tv available',
+      'icon' => 'fas fa-wifi'
+
+    ]);
+
+     DB::table('services')->insert(
+     [
+      'name' => 'parking',
+      'description' => ' Free parking spaces available',
+      'icon' => 'fas fa-car'
+
+      ]);
+      DB::table('services')->insert(
+      [
+       'name' => 'accessibility',
+       'description' => 'disabled accessibility',
+       'icon' => 'fab fa-accessible-icon'
+
+     ]);
     }
 
     /**

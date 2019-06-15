@@ -11,4 +11,8 @@ class Sponsored_Room extends Model
     'rental_id',
     'end_date'
   ];
+
+  public function sponsor(){
+    return $this->belongsTo(Sponsor::class);
+  }
 }
