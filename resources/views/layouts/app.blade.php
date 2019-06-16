@@ -26,6 +26,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
+                <a href="{{route('rental.show-all')}}" class="btn btn-primary stretched-link mx-2">Tutte le stanze</a>
+                <a href="{{route('rental.create')}}" class="btn btn-success stretched-link mx-2"> Crea Stanza</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
