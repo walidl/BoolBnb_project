@@ -23,6 +23,7 @@ class CreateRentalsTable extends Migration
             $table->string('address');
             $table->string('image');
             $table->timestamps();
+            
         });
     }
 
