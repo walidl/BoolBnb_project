@@ -12,4 +12,8 @@ class Sponsor extends Model
       'duration',
       'price'
     ];
+
+    public function sponsored_rooms(){
+      return $this->hasMany(Sponsored_Room::class);
+    }
 }
