@@ -13,17 +13,17 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-      Schema::table('messages', function(Blueprint $table){
-
-        $table->foreign('user_id', 'user')
-              ->reference('id')
-              ->on('users')
-              ->onDelete('cascade');
-        $table->foreign('rental_id', 'rental')
-              ->reference('id')
-              ->on('rentals')
-              ->onDelete('cascade');
-      });
+      // Schema::table('messages', function(Blueprint $table){
+      //
+      //   $table->foreign('user_id', 'user')
+      //         ->reference('id')
+      //         ->on('users')
+      //         ->onDelete('cascade');
+      //   $table->foreign('rental_id', 'rental')
+      //         ->reference('id')
+      //         ->on('rentals')
+      //         ->onDelete('cascade');
+      // });
 
       Schema::table('rentals', function (Blueprint $table) {
 
@@ -46,6 +46,20 @@ class AddForeignKeys extends Migration
               ->onDelete('cascade');
 
      });
+
+      Schema::table('rental_sponsor', function (Blueprint $table) {
+
+        $table->foreign('rental_id','rental_sp')
+              ->references('id')
+              ->on('rentals')
+              ->onDelete('cascade');
+
+        $table->foreign('sponsor_id','sponsor_rn')
+              ->references('id')
+              ->on('sponsors')
+              ->onDelete('cascade');
+
+     });
     }
 
     /**
@@ -55,16 +69,16 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function(Blueprint $table){
+        // Schema::table('messages', function(Blueprint $table){
+        //
+        //   $table->dropForeign('user');
+        //   $table->dropForeign('rental');
+        // });
 
-          $table->dropForeign('user');
-          $table->dropForeign('rental');
-        });
-
-        Schema::create('rentals', function (Blueprint $table) {
-
-          $table->dropForeign('user');
-
-        });
+        // Schema::create('rentals', function (Blueprint $table) {
+        //
+        //   $table->dropForeign('user');
+        //
+        // });
     }
 }

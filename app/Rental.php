@@ -17,4 +17,9 @@ class Rental extends Model
 
     return $this->belongsTo(User::class);
   }
+
+  public function sponsors(){
+
+    return $this->belongsToMany(Sponsor::class);
+  }
 }

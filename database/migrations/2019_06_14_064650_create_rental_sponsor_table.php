@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSponsoredRoomsTable extends Migration
+class CreateRentalSponsorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSponsoredRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sponsored_rooms', function (Blueprint $table) {
+        Schema::create('rental_sponsor', function (Blueprint $table) {
           $table->bigIncrements('id');
           $table->bigInteger('sponsor_id')->unsigned()->index();
           $table->bigInteger('rental_id')->unsigned()->index();
@@ -29,6 +29,6 @@ class CreateSponsoredRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sponsored_rooms');
+        Schema::dropIfExists('rental_sponsor');
     }
 }
