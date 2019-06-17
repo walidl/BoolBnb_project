@@ -7,7 +7,7 @@
       @foreach ($rentals as $rental)
 
         <div class="card col-5 m-2 pt-3" style="width: 18rem;">
-          {{$rental->user->name}}
+          {{$rental->user->name}} {{$rental->user->lastname}}
           <img src="{{asset('storage/images/'.$rental->image)}}" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">{{$rental->title}}</h5>

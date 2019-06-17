@@ -13,17 +13,17 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-      // Schema::table('messages', function(Blueprint $table){
-      //
-      //   $table->foreign('user_id', 'user')
-      //         ->reference('id')
-      //         ->on('users')
-      //         ->onDelete('cascade');
-      //   $table->foreign('rental_id', 'rental')
-      //         ->reference('id')
-      //         ->on('rentals')
-      //         ->onDelete('cascade');
-      // });
+      Schema::table('messages', function(Blueprint $table){
+
+        $table->foreign('user_id', 'user')
+              ->reference('id')
+              ->on('users')
+              ->onDelete('cascade');
+        $table->foreign('rental_id', 'rental')
+              ->reference('id')
+              ->on('rentals')
+              ->onDelete('cascade');
+      });
 
       Schema::table('rentals', function (Blueprint $table) {
 
