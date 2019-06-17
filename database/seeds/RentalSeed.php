@@ -11,9 +11,9 @@ class RentalSeed extends Seeder
      */
     public function run()
     {
-      factory(App\Rental::class,5)->create();
+      factory(App\Rental::class,5)->make()
       ->each(function($rental){
-        $user = App\User::where('renting','true')->inRandomOrder()->first();
+        $user = App\User::where('renting',true)->inRandomOrder()->first();
         $rental->user()->associate($user);
         $rental->save();
 
