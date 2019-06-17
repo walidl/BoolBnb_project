@@ -45,19 +45,6 @@ class AddForeignKeys extends Migration
               ->on('rentals')
               ->onDelete('cascade');
       });
-      // Schema::table('messages', function(Blueprint $table){
-      //
-      //   // $table->foreign('user_id','user')
-      //   //       ->references('id')
-      //   //       ->on('users');
-      //
-      //   $table->foreign('rental_id','rental')
-      //         ->references('id')
-      //         ->on('rentals');
-      //         // ->onDelete('cascade');
-      // });
-
-
     }
 
     /**
