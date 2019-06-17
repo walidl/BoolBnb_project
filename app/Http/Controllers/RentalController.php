@@ -39,7 +39,7 @@ class RentalController extends Controller
     }
     //Crea nuovo post
     $rental = new Rental;
-    //Inteserisci valori validati
+    //Inserimento valori validati
     $rental->title = $validData['title'];
     $rental->rooms = $validData['rooms'];
     $rental->bedrooms = $validData['bedrooms'];
