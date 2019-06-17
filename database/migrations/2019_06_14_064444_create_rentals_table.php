@@ -24,7 +24,6 @@ class CreateRentalsTable extends Migration
             $table->string('image');
             $table->timestamps();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->bigInteger('message_id')->unsigned()->index();
 
 
 
