@@ -25,6 +25,15 @@ class AddForeignKeys extends Migration
                 ->onDelete('cascade');
         });
 
+        Schema::table('rentals', function (Blueprint $table) {
+
+          $table->foreign('user_id','user')
+                ->references('id')
+                ->on('users');
+
+        });
+
+
     }
 
     /**
@@ -38,6 +47,13 @@ class AddForeignKeys extends Migration
 
           $table->dropForeign('user');
           $table->dropForeign('rental');
-        })
+        });
+
+        Schema::create('rentals', function (Blueprint $table) {
+
+          $table->dropForeign('user');
+          // $table->dropForeign('category');
+
+        });
     }
 }
