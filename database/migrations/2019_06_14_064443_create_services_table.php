@@ -33,7 +33,7 @@ class CreateServicesTable extends Migration
      [
       'name' => 'TV',
       'description' => 'Tv available',
-      'icon' => 'fas fa-wifi'
+      'icon' => 'fas fa-tv'
 
     ]);
 
