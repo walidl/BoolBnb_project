@@ -13,27 +13,39 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('message', function(Blueprint $table){
+      // Schema::table('messages', function(Blueprint $table){
+      //
+      //   $table->foreign('user_id', 'user')
+      //         ->reference('id')
+      //         ->on('users')
+      //         ->onDelete('cascade');
+      //   $table->foreign('rental_id', 'rental')
+      //         ->reference('id')
+      //         ->on('rentals')
+      //         ->onDelete('cascade');
+      // });
 
-          $table->foreign('user_id', 'user')
-                ->reference('id')
-                ->on('users')
-                ->onDelete('cascade');
-          $table->foreign('rental_id', 'rental')
-                ->reference('id')
-                ->on('rentals')
-                ->onDelete('cascade');
-        });
+      Schema::table('rentals', function (Blueprint $table) {
 
-        Schema::table('rentals', function (Blueprint $table) {
+        $table->foreign('user_id','user')
+              ->references('id')
+              ->on('users');
 
-          $table->foreign('user_id','user')
-                ->references('id')
-                ->on('users');
+      });
 
-        });
+      Schema::table('rental_service', function (Blueprint $table) {
 
+        $table->foreign('rental_id','rental')
+              ->references('id')
+              ->on('rentals')
+              ->onDelete('cascade');
 
+        $table->foreign('service_id','service')
+              ->references('id')
+              ->on('services')
+              ->onDelete('cascade');
+
+     });
     }
 
     /**
@@ -52,7 +64,6 @@ class AddForeignKeys extends Migration
         Schema::create('rentals', function (Blueprint $table) {
 
           $table->dropForeign('user');
-          // $table->dropForeign('category');
 
         });
     }
