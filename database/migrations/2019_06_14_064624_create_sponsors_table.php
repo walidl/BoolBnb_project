@@ -40,7 +40,7 @@ class CreateSponsorsTable extends Migration
         DB::table('sponsors')->insert(
         [
          'name' => 'six_days',
-         'duration' => '144',
+         'duration' => 144,
          'price' => 9.99
 
        ]);
