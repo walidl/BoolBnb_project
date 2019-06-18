@@ -16,11 +16,34 @@ class CreateSponsorsTable extends Migration
         Schema::create('sponsors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
-            $table->bigInteger('rental_id')->unsigned()->index();
             $table->integer('duration');
             $table->float('price',3,2);
             $table->timestamps();
         });
+
+        DB::table('sponsors')->insert(
+        [
+         'name' => 'one_day',
+         'duration' => 24,
+         'price' => 2.99
+
+       ]);
+
+        DB::table('sponsors')->insert(
+        [
+         'name' => 'three_days',
+         'duration' => 72,
+         'price' => 5.99
+
+       ]);
+
+        DB::table('sponsors')->insert(
+        [
+         'name' => 'six_days',
+         'duration' => '144',
+         'price' => 9.99
+
+       ]);
     }
 
     /**
