@@ -12,40 +12,44 @@ class AddForeignKeys extends Migration
      * @return void
      */
     public function up()
-    {
-      Schema::table('messages', function(Blueprint $table){
 
-        $table->foreign('user_id', 'user')
-              ->reference('id')
-              ->on('users')
-              ->onDelete('cascade');
-        $table->foreign('rental_id', 'rental')
-              ->reference('id')
+    {
+
+      
+      Schema::table('rental_service', function (Blueprint $table) {
+
+        $table->foreign('rental_id','rental_service')
+              ->references('id')
               ->on('rentals')
+              ->onDelete('cascade');
+
+        $table->foreign('service_id','service_cervice')
+              ->references('id')
+              ->on('services')
               ->onDelete('cascade');
       });
 
       Schema::table('rentals', function (Blueprint $table) {
 
-        $table->foreign('user_id','user')
+        $table->foreign('user_id','user_rental')
               ->references('id')
               ->on('users');
+      });
+
+      Schema::table('messages', function (Blueprint $table) {
+
+        $table->foreign('user_id','user_message')
+        ->references('id')
+        ->on('users')
+        ->onDelete('cascade');
+
+        $table->foreign('rental_id','rental_message')
+        ->references('id')
+        ->on('rentals')
+        ->onDelete('cascade');
 
       });
 
-      Schema::table('rental_service', function (Blueprint $table) {
-
-        $table->foreign('rental_id','rental')
-              ->references('id')
-              ->on('rentals')
-              ->onDelete('cascade');
-
-        $table->foreign('service_id','service')
-              ->references('id')
-              ->on('services')
-              ->onDelete('cascade');
-
-     });
     }
 
     /**
@@ -55,7 +59,7 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function(Blueprint $table){
+        Schema::create('messages', function(Blueprint $table){
 
           $table->dropForeign('user');
           $table->dropForeign('rental');
