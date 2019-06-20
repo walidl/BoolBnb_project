@@ -26,6 +26,7 @@ class CreateRentalsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
 
 
+
         });
     }
 
