@@ -18,14 +18,16 @@ class Rental extends Model
     return $this->belongsTo(User::class);
   }
 
-<<<<<<< HEAD
+
   function messages(){
 
     return $this->hasMany(Message::class);
-=======
+
+  }
+
   public function sponsors(){
 
     return $this->belongsToMany(Sponsor::class);
->>>>>>> master
+
   }
 }

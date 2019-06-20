@@ -15,7 +15,7 @@ class AddForeignKeys extends Migration
 
     {
 
-      
+
       Schema::table('rental_service', function (Blueprint $table) {
 
         $table->foreign('rental_id','rental_service')
@@ -50,10 +50,6 @@ class AddForeignKeys extends Migration
 
       });
 
-<<<<<<< HEAD
-=======
-     });
-
       Schema::table('rental_sponsor', function (Blueprint $table) {
 
         $table->foreign('rental_id','rental_sp')
@@ -67,7 +63,6 @@ class AddForeignKeys extends Migration
               ->onDelete('cascade');
 
      });
->>>>>>> master
     }
 
     /**

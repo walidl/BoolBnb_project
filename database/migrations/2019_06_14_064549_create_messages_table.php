@@ -16,11 +16,12 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
 
             $table->bigIncrements('id');
+            $table->string('title');
             $table->text('content');
-            $table->text('sent_date');
-            $table->timestamps();
-            $table->bigInteger('user_id')->unsigned()->index();
+            $table->string('sent_date');
+            $table->bigInteger('user_id')->unsigned()->index()->default(rand(1,5));
             $table->bigInteger('rental_id')->unsigned()->index();
+            $table->timestamps();
 
         });
     }
