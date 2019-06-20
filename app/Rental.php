@@ -10,7 +10,7 @@ class Rental extends Model
 
   function services(){
 
-    return $this->belongsToMany(Service::class);
+    return $this->belongsToMany(Service::class)->withTimestamps();
   }
 
   function user(){
@@ -20,11 +20,36 @@ class Rental extends Model
 
   public function sponsors(){
 
-    return $this->belongsToMany(Sponsor::class);
+    return $this->belongsToMany(Sponsor::class)->withTimestamps()->withPivot('created_at');
   }
 
   function messages(){
 
     return $this->hasMany(Message::class);
+  }
+
+  function isSponsored(){
+
+    if(count($this->sponsors) == 0){
+
+      return false;
+    }
+    else{
+      $sponsor = $this->sponsors->first();
+      $date = $sponsor->pivot->created_at;
+      $sponsorDuration  = $sponsor->duration;
+      $endDate = date('Y-m-d H:i',strtotime('+'. $sponsorDuration.' hour',strtotime($date)));
+      $currentDate = date('Y-m-d H:i');
+      $logica = "$date + $sponsorDuration h =  $endDate ";
+      // return "$currentDate -- $endDate";
+      if(strtotime($endDate) > strtotime($currentDate)){
+
+        return true;
+      }
+      else{
+        return true;
+      }
+
+    }
   }
 }

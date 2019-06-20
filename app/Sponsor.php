@@ -13,6 +13,6 @@ class Sponsor extends Model
     ];
 
     public function rentals(){
-      return $this->belongsToMany(Rental::class);
+      return $this->belongsToMany(Rental::class)->withTimestamps();
     }
 }
