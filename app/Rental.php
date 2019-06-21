@@ -35,7 +35,7 @@ class Rental extends Model
       return false;
     }
     else{
-      $sponsor = $this->sponsors->first();
+      $sponsor = $this->sponsors->last();
       $date = $sponsor->pivot->created_at;
       $sponsorDuration  = $sponsor->duration;
       $endDate = date('Y-m-d H:i',strtotime('+'. $sponsorDuration.' hour',strtotime($date)));
@@ -47,7 +47,7 @@ class Rental extends Model
         return true;
       }
       else{
-        return true;
+        return false;
       }
 
     }

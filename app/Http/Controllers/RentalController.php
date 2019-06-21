@@ -17,6 +17,12 @@ class RentalController extends Controller
     return view('pages.show-rentals',compact('rentals'));
   }
 
+  public function sponsoredRentals(){
+
+
+    
+  }
+
   public function createRental(){
 
 

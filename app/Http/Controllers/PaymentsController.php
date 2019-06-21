@@ -21,6 +21,8 @@ class PaymentsController extends Controller
       return redirect(route('rental.show-all'));
     }
 
+    $rental->sponsors()->detach();
+
     $sponsors = Sponsor::all();
 
 
