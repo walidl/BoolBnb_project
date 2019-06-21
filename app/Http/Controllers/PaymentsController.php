@@ -21,7 +21,6 @@ class PaymentsController extends Controller
       return redirect(route('rental.show-all'));
     }
 
-    $rental->sponsors()->detach();
 
     $sponsors = Sponsor::all();
 
@@ -63,7 +62,6 @@ class PaymentsController extends Controller
       ]);
       if ($result->success || !is_null($result->transaction)) {
           $transaction = $result->transaction;
-          // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
           $this->addSponsor($rentalId,$sponsor);
           return redirect(route('rental.show-all'));
       } else {
@@ -74,7 +72,6 @@ class PaymentsController extends Controller
 
           }
           $_SESSION["errors"] = $errorString;
-          // header("Location: " . $baseUrl . "index.php");
         }
     }
 
@@ -82,7 +79,9 @@ class PaymentsController extends Controller
     public function addSponsor($rentalId,$sponsor){
 
       $rental = Rental::findOrFail($rentalId);
-      // dd($rental);
-      $rental->sponsors()->sync($sponsor);
+      $sponsorDuration = $sponsor->duration;
+      $currentDate = date('Y-m-d H:i:s');
+      $endDate = date('Y-m-d H:i:s',strtotime('+'. $sponsorDuration.' hour',strtotime($currentDate)));
+      $rental->sponsors()->attach($sponsor,['end_date' => $endDate]);
     }
 }

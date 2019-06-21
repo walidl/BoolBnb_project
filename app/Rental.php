@@ -20,13 +20,37 @@ class Rental extends Model
 
   public function sponsors(){
 
-    return $this->belongsToMany(Sponsor::class)->withTimestamps()->withPivot('created_at');
+    return $this->belongsToMany(Sponsor::class)->withTimestamps()->withPivot('end_date');
   }
 
   function messages(){
 
     return $this->hasMany(Message::class);
   }
+
+  public function scopeSponsored($query)
+    {
+
+      $pivot = $this->sponsors()->getTable();
+      $currentDate = date('Y-m-d H:i');
+       return $query->whereHas('sponsors', function ($query) use($pivot,$currentDate){
+          $query->where("{$pivot}.end_date", '>', $currentDate);
+
+        });
+
+    }
+    public function scopeNotSponsored($query)
+      {
+
+        $pivot = $this->sponsors()->getTable();
+        $currentDate = date('Y-m-d H:i');
+        return $query->whereDoesntHave('sponsors')
+                     ->orwhereDoesntHave('sponsors', function ($query) use($pivot,$currentDate){
+           $query->where("{$pivot}.end_date", '>', $currentDate);
+
+         });
+
+      }
 
   function isSponsored(){
 
@@ -35,13 +59,12 @@ class Rental extends Model
       return false;
     }
     else{
+
       $sponsor = $this->sponsors->last();
-      $date = $sponsor->pivot->created_at;
-      $sponsorDuration  = $sponsor->duration;
-      $endDate = date('Y-m-d H:i',strtotime('+'. $sponsorDuration.' hour',strtotime($date)));
-      $currentDate = date('Y-m-d H:i');
-      $logica = "$date + $sponsorDuration h =  $endDate ";
-      // return "$currentDate -- $endDate";
+
+      $endDate = $sponsor->pivot->end_date;
+      $currentDate = date('Y-m-d H:i:s');
+
       if(strtotime($endDate) > strtotime($currentDate)){
 
         return true;

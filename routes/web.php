@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/rentals/all', 'RentalController@showRentals')->name('rental.show-all');
+Route::get('/rentals/sponsored', 'RentalController@sponsoredRentals')->name('rental.sponsored');
+
 Route::get('/rentals/new', 'RentalController@createRental')->name('rental.create');
 Route::post('/rentals', 'RentalController@storeRental')->name('rental.store');
 Route::get('/payment/sponsor/{id}', 'PaymentsController@selectSponsor')->name('payment.sponsor');

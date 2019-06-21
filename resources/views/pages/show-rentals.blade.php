@@ -14,6 +14,7 @@
 
             </div>
           @endif
+
           {{$rental->user->name}} {{$rental->user->lastname}}
           <img src="{{asset('storage/images/'.$rental->image)}}" class="card-img-top">
           <div class="card-body">
