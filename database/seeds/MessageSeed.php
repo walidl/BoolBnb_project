@@ -15,10 +15,10 @@ class MessageSeed extends Seeder
           ->each(function($message){
 
             $rental = App\Rental::inRandomOrder()->first();
-            $user = $rental->user();
+            $user = $rental->user;
 
-            // $message->user()->associate($user);
             $message->rental()->associate($rental);
+            $message->user()->associate($user);
             $message->save();
           });
     }
