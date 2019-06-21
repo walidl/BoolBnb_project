@@ -14,13 +14,13 @@ class RentalSeed extends Seeder
       factory(App\Rental::class,5)->make()
       ->each(function($rental){
         $user = App\User::where('renting',true)->inRandomOrder()->first();
-        $sponsors = App\Sponsor::inRandomOrder()->take(rand(1,3))->get();
+        // $sponsors = App\Sponsor::inRandomOrder()->take(rand(1,3))->get();
         $rental->user()->associate($user);
         $rental->save();
 
         $services = App\Service::inRandomOrder()->take(rand(1,3))->get();
         $rental->services()->attach($services);
-        $rental->sponsors()->attach($sponsors);
+        // $rental->sponsors()->attach($sponsors);
       });
 
     }

@@ -10,11 +10,20 @@ class RentalController extends Controller
 {
   public function showRentals(){
 
-    $rentals = Rental::orderBy('updated_at','desc')->get();
-
-    // dd($rentals);
+    $sponsoredRentals = Rental::sponsored()->get();
+    $notSponsoredRentals = Rental::notSponsored()->get();
+    $rentals = $sponsoredRentals->merge($notSponsoredRentals);
 
     return view('pages.show-rentals',compact('rentals'));
+  }
+
+  public function sponsoredRentals(){
+
+    $rentals = Rental::sponsored()->get();
+
+    return view('pages.show-rentals',compact('rentals'));
+
+
   }
 
   public function createRental(){
@@ -48,8 +57,7 @@ class RentalController extends Controller
     $rental->address = $validData['address'];
     $rental->image = $fileNameToStore;
 
-
-
+    
     // Salva
     $rental->save();
 
