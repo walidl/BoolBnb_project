@@ -21,6 +21,15 @@ class CreateSponsorsTable extends Migration
             $table->timestamps();
         });
 
+
+        DB::table('sponsors')->insert(
+        [
+         'name' => 'one_hour',
+         'duration' => 1,
+         'price' => 0.99
+
+       ]);
+
         DB::table('sponsors')->insert(
         [
          'name' => 'one_day',

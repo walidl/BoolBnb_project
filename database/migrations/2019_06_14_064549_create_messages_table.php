@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('sent_date');
-            $table->bigInteger('user_id')->unsigned()->index()->default(rand(1,5));
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('rental_id')->unsigned()->index();
             $table->timestamps();
 

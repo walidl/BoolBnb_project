@@ -17,7 +17,7 @@ class CreateRentalSponsorTable extends Migration
           $table->bigIncrements('id');
           $table->bigInteger('sponsor_id')->unsigned()->index();
           $table->bigInteger('rental_id')->unsigned()->index();
-          $table->date('end_date')->nullable();//Nullable SOLO in fase di sviluppo 
+          $table->timestamp('end_date')->nullable();//Nullable SOLO in fase di sviluppo 
           $table->timestamps();
         });
     }
