@@ -11,6 +11,15 @@ class MessageSeed extends Seeder
      */
     public function run()
     {
-        factory(App\Message::class, 15)->create();
+        factory(App\Message::class, 50)->make()
+          ->each(function($message){
+
+            $rental = App\Rental::inRandomOrder()->first();
+            $user = $rental->user;
+
+            $message->rental()->associate($rental);
+            $message->user()->associate($user);
+            $message->save();
+          });
     }
 }
