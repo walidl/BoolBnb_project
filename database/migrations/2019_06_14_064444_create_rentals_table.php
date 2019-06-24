@@ -23,7 +23,7 @@ class CreateRentalsTable extends Migration
             $table->string('address');
             $table->string('image');
             $table->timestamps();
-            $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index()->default(1);
 
 
 

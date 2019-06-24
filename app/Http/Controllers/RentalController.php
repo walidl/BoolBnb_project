@@ -5,22 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RentalRequest;
 use App\Rental;
+use App\Service;
 
 class RentalController extends Controller
 {
   public function showRentals(){
 
-    $rentals = Rental::orderBy('updated_at','desc')->get();
-
-    // dd($rentals);
+    $sponsoredRentals = Rental::sponsored()->get();
+    $notSponsoredRentals = Rental::notSponsored()->get();
+    $rentals = $sponsoredRentals->merge($notSponsoredRentals);
 
     return view('pages.show-rentals',compact('rentals'));
   }
 
+  public function sponsoredRentals(){
+
+    $rentals = Rental::sponsored()->get();
+
+    return view('pages.show-rentals',compact('rentals'));
+
+
+  }
+
   public function createRental(){
 
-
-    return view('pages.new-rental');
+    $services = Service::all();
+    return view('pages.new-rental',compact('services'));
   }
   public function storeRental(RentalRequest $request){
 
@@ -48,10 +58,13 @@ class RentalController extends Controller
     $rental->address = $validData['address'];
     $rental->image = $fileNameToStore;
 
-
-
     // Salva
     $rental->save();
+
+    // Add Services
+    $servicesIDs = $request->services;
+    $services = Service::find($servicesIDs);
+    $rental->services()->sync($services);
 
     return redirect(route('rental.show-all'));
 
