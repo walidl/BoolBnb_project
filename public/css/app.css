@@ -10650,3 +10650,16 @@ a.text-dark:focus {
   }
 }
 
+.container .title-pmess {
+  color: #e3342f;
+}
+
+.container table .mess-received {
+  width: 150px;
+}
+
+.container table tr td p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+

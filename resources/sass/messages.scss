@@ -1,0 +1,28 @@
+.container{
+
+
+
+    .title-pmess{
+
+      color: $red;
+    }
+
+    table{
+
+      .mess-received{
+
+        width:150px;
+      }
+
+      tr{
+        td  {
+          p{
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+}
