@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RentalRequest;
 use App\Rental;
+use App\Service;
 
 class RentalController extends Controller
 {
@@ -28,8 +29,8 @@ class RentalController extends Controller
 
   public function createRental(){
 
-
-    return view('pages.new-rental');
+    $services = Service::all();
+    return view('pages.new-rental',compact('services'));
   }
   public function storeRental(RentalRequest $request){
 
@@ -57,9 +58,13 @@ class RentalController extends Controller
     $rental->address = $validData['address'];
     $rental->image = $fileNameToStore;
 
-    
     // Salva
     $rental->save();
+
+    // Add Services
+    $servicesIDs = $request->services;
+    $services = Service::find($servicesIDs);
+    $rental->services()->sync($services);
 
     return redirect(route('rental.show-all'));
 
