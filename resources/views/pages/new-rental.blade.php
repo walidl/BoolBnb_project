@@ -43,6 +43,18 @@
               <input type="text" class="form-control {{$errors->has('address') ? "border-danger" : "" }}" name = "address" placeholder="Enter Address">
               {!! $errors->first('address', '<small class="form-text text-danger">:message</small>') !!}
             </div>
+            <div class="form-group form-check pl-0" >
+            <label for="services[]">Services</label>
+            <option value="" disabled selected>Choose the provided services</option>
+            {!! $errors->first('services', '<small class="form-text text-danger">:message</small>') !!}
+
+            @foreach ($services as $service)
+              <div class="d-flex align-items-center">
+                <input type="checkbox" name="services[]" value="{{$service->id}}" > <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
+              </div>
+            @endforeach
+          </div>
+
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -50,7 +62,7 @@
               </div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input"  aria-describedby="image" name="image">
-                <label class="custom-file-label" for="image">Choose file</label>
+                <label class="custom-file-label" for="image">Select file</label>
               </div>
               {!! $errors->first('image', '<small class="form-text text-danger">:message</small>') !!}
 

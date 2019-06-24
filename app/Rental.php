@@ -30,28 +30,29 @@ class Rental extends Model
   }
 
   public function scopeSponsored($query)
-    {
+  {
 
-      $pivot = $this->sponsors()->getTable();
-      $currentDate = date('Y-m-d H:i');
-       return $query->whereHas('sponsors', function ($query) use($pivot,$currentDate){
-          $query->where("{$pivot}.end_date", '>', $currentDate);
+    $pivot = $this->sponsors()->getTable();
+    $currentDate = date('Y-m-d H:i');
+    return $query->whereHas('sponsors', function ($query) use($pivot,$currentDate){
+      $query->where("{$pivot}.end_date", '>', $currentDate);
 
-        });
+    });
 
-    }
-    public function scopeNotSponsored($query)
-      {
+  }
+  
+  public function scopeNotSponsored($query)
+  {
 
-        $pivot = $this->sponsors()->getTable();
-        $currentDate = date('Y-m-d H:i');
-        return $query->whereDoesntHave('sponsors')
-                     ->orwhereDoesntHave('sponsors', function ($query) use($pivot,$currentDate){
-           $query->where("{$pivot}.end_date", '>', $currentDate);
+    $pivot = $this->sponsors()->getTable();
+    $currentDate = date('Y-m-d H:i');
+    return $query->whereDoesntHave('sponsors')
+                 ->orwhereDoesntHave('sponsors', function ($query) use($pivot,$currentDate){
+       $query->where("{$pivot}.end_date", '>', $currentDate);
 
-         });
+     });
 
-      }
+  }
 
   function isSponsored(){
 

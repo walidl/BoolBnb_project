@@ -32,6 +32,7 @@ class RentalRequest extends FormRequest
         'square_meters' => 'required',
         'address' => 'required',
         'image' => 'required|image'
+        // 'services' => 'required'
       ];
 
     }
