@@ -10663,3 +10663,8 @@ a.text-dark:focus {
   text-overflow: ellipsis;
 }
 
+#map {
+  width: 300px;
+  height: 300px;
+}
+

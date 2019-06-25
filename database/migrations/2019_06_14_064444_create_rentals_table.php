@@ -21,6 +21,8 @@ class CreateRentalsTable extends Migration
             $table->integer('bedrooms')->unsigned();
             $table->float('square_meters',5,2)->unsigned();
             $table->string('address');
+            $table->float('lat',10,6);
+            $table->float('lon',10,6);
             $table->string('image');
             $table->timestamps();
             $table->bigInteger('user_id')->unsigned()->index()->default(1);

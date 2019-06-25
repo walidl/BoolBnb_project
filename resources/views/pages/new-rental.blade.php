@@ -40,8 +40,18 @@
 
             <div class="form-group" >
               <label for="address">Address</label>
-              <input type="text" class="form-control {{$errors->has('address') ? "border-danger" : "" }}" name = "address" placeholder="Enter Address">
-              {!! $errors->first('address', '<small class="form-text text-danger">:message</small>') !!}
+              {{-- <input type="text" class="form-control {{$errors->has('address') ? "border-danger" : "" }}" name = "address" placeholder="Enter Address">
+              {!! $errors->first('address', '<small class="form-text text-danger">:message</small>') !!} --}}
+              <div id="search-panel">
+              </div>
+              
+              <input id="addr" type="hidden" name="address" value="">
+              <input id="lat" type="hidden" name="lat" value="">
+              <input id="lon" type="hidden" name="lon" value="">
+
+              <div id="map">
+              </div>
+
             </div>
             <div class="form-group form-check pl-0" >
             <label for="services[]">Services</label>

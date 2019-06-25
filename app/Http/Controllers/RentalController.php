@@ -56,6 +56,8 @@ class RentalController extends Controller
     $rental->bathrooms = $validData['bathrooms'];
     $rental->square_meters = $validData['square_meters'];
     $rental->address = $validData['address'];
+    $rental->lat = $validData['lat'];
+    $rental->lon = $validData['lon'];
     $rental->image = $fileNameToStore;
 
     // Salva
