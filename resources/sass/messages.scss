@@ -1,28 +1,36 @@
 .container{
 
+  .hidden{
 
+    display: none;
+  }
 
-    .title-pmess{
+  table{
 
-      color: $red;
-    }
-
-    table{
-
-      .mess-received{
-
-        width:150px;
-      }
+    tbody{
 
       tr{
-        td  {
-          p{
 
-            white-space: nowrap;
-            text-overflow: ellipsis;
+        &:hover{
+
+          background: darkgrey;
+          font-weight: bold;
+          cursor:pointer;
+        }
+
+        td{
+
+          form{
+
+            button{
+
+              background-color: Transparent;
+              border:none;
+            }
           }
         }
       }
     }
+  }
 
 }

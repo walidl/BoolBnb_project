@@ -16,7 +16,11 @@
               <input type="text" class="form-control {{$errors->has('title') ? "border-danger" : "" }}" name = "title" placeholder="Enter Title">
               {!! $errors->first('title', '<small class="form-text text-danger">:message</small>') !!}
             </div>
-
+            <div class="form-group" >
+              <label for="description">Description</label>
+              <input type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" placeholder="Enter Description">
+              {!! $errors->first('description', '<small class="form-text text-danger">:message</small>') !!}
+            </div>
             <div class="form-group">
               <label for="rooms">Rooms</label>
               <input type="number"  min="1" max="10" class="form-control {{$errors->has('rooms') ? "border-danger" : "" }}" name = "rooms">

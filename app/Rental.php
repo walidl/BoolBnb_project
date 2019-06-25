@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rental extends Model
 {
-  protected $fillable =['title','rooms','beds','bathrooms','bedrooms','square_meters','address','user_id'];
+  protected $fillable =['title', 'description','rooms','description','beds','bathrooms','square_meters','address','user_id'];
 
   function services(){
 
@@ -40,7 +40,7 @@ class Rental extends Model
     });
 
   }
-  
+
   public function scopeNotSponsored($query)
   {
 

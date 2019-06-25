@@ -27,30 +27,79 @@ class CreateServicesTable extends Migration
        'description' => 'Wi-Fi connection available',
        'icon' => 'fas fa-wifi'
 
-     ]);
+      ]);
 
-     DB::table('services')->insert(
-     [
-      'name' => 'TV',
-      'description' => 'Tv available',
-      'icon' => 'fas fa-tv'
+      DB::table('services')->insert(
+      [
+        'name' => 'TV',
+        'description' => 'Tv available',
+        'icon' => 'fas fa-tv'
 
-    ]);
+      ]);
 
-     DB::table('services')->insert(
-     [
-      'name' => 'parking',
+      DB::table('services')->insert(
+      [
+      'name' => 'Parking',
       'description' => ' Free parking spaces available',
       'icon' => 'fas fa-car'
 
       ]);
+
       DB::table('services')->insert(
       [
-       'name' => 'accessibility',
-       'description' => 'disabled accessibility',
+       'name' => 'Accessibility',
+       'description' => 'Disabled accessibility',
        'icon' => 'fab fa-accessible-icon'
 
-     ]);
+      ]);
+
+      DB::table('services')->insert(
+      [
+        'name' => 'Pool',
+        'description' => 'Pool available',
+        'icon' => 'fas fa-swimmer'
+
+      ]);
+
+      DB::table('services')->insert(
+      [
+       'name' => 'Spa',
+       'description' => 'Spa available',
+       'icon' => 'fas fa-spa'
+
+      ]);
+
+      DB::table('services')->insert(
+      [
+        'name' => 'Airport shuttle',
+        'description' => 'Airport shuttle available',
+        'icon' => 'fas fa-shuttle-van'
+
+      ]);
+
+      DB::table('services')->insert(
+      [
+        'name' => 'Breakfast',
+        'description' => 'Breakfast available',
+        'icon' => 'fas fa-coffee'
+
+      ]);
+
+      DB::table('services')->insert(
+      [
+        'name' => 'Pet',
+        'description' => 'Pet allowed',
+        'icon' => 'fas fa-paw'
+
+      ]);
+
+      DB::table('services')->insert(
+      [
+        'name' => 'Gym',
+        'description' => 'Gym available',
+        'icon' => 'fas fa-dumbbell'
+
+      ]);
     }
 
     /**

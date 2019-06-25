@@ -10650,16 +10650,18 @@ a.text-dark:focus {
   }
 }
 
-.container .title-pmess {
-  color: #e3342f;
+.container .hidden {
+  display: none;
 }
 
-.container table .mess-received {
-  width: 150px;
+.container table tbody tr:hover {
+  background: darkgrey;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.container table tr td p {
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.container table tbody tr td form button {
+  background-color: Transparent;
+  border: none;
 }
 
