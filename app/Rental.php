@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rental extends Model
 {
-  protected $fillable =['title','rooms','beds','bathrooms','square_meters','address','lat','lon','user_id'];
+  protected $fillable =['title', 'description','rooms','beds','bathrooms','square_meters','address','lat','lon','user_id'];
 
   function services(){
 
