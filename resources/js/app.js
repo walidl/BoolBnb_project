@@ -57,7 +57,7 @@ function tomtomAutoComp(){
 
        addrInput.val(addr);
        latInput.val(lat);
-       lonInput.val(lon);
+       lonInput.val(lon).trigger('change');
     });
 
   });

@@ -16,7 +16,7 @@ class PaymentsController extends Controller
 
     $rental = Rental::findOrFail($id);
 
-    if($rental->isSponsored()){
+    if($rental->isSponsored() || auth()->user()->id != $rental->user->id){
 
       return redirect(route('rental.show-all'));
     }
@@ -37,8 +37,8 @@ class PaymentsController extends Controller
     return view('pages.payment',compact('sponsors','token'))->with('rentalId',$id);
   }
 
-    public function process($rentalId,Request $request)
-    {
+  public function process($rentalId,Request $request)
+  {
       $gateway = new Braintree_Gateway([
           'environment' => env('BRAINTREE_ENV'),
           'merchantId' => env('BRAINTREE_MERCHANT_ID'),
