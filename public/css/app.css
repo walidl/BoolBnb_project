@@ -10675,3 +10675,8 @@ a.text-dark:focus {
   border: none;
 }
 
+#map {
+  width: 300px;
+  height: 300px;
+}
+
