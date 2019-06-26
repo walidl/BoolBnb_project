@@ -10663,6 +10663,220 @@ a.text-dark:focus {
   width: 50px;
 }
 
+.serch__section {
+  width: 100%;
+  height: 800px;
+  background-color: #e3342f;
+  background-image: url(https://images.unsplash.com/photo-1509803874385-db7c23652552?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-size: cover;
+  position: relative;
+}
+
+.serch__section .serching {
+  border-radius: 5px;
+  background-color: white;
+  width: 550px;
+  height: 480px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.serch__section .serching .serch__component .row {
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+.serch__section .serching .serch__component .serch__button {
+  border: solid #BFBFBF;
+  border-radius: 3px;
+  border-width: thin;
+  padding: 10px;
+}
+
+.serch__section .serching .serch__component .serch__button:hover {
+  box-shadow: 1px 1px #BFBFBF;
+}
+
+.serch__section .serching .serch__component .serch {
+  text-align: center;
+  color: white;
+  background-color: #e3342f;
+  padding: 17px;
+  border: none;
+}
+
+.sponsored__section {
+  padding-top: 50px;
+}
+
+.sponsored__section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 55px;
+}
+
+.sponsored__section .room__card__small {
+  height: 320px;
+  padding: 10px;
+}
+
+.sponsored__section .room__card__small__img {
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.sponsored__section .room__card__small__img img {
+  opacity: 0.7;
+}
+
+.sponsored__section .room__card__small__img img:hover {
+  opacity: 0.5;
+}
+
+.sponsored__section .room__card__small__text {
+  height: 20%;
+  width: 100%;
+}
+
+.sponsored__section .room__card__small__text .specification__misur {
+  float: right;
+  padding-left: 10px;
+}
+
+.sponsored__section .room__card__small__text .specification__adult {
+  float: right;
+  padding-left: 10px;
+}
+
+.organization__section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.organization__section h1 {
+  font-size: 55px;
+}
+
+.organization__section .row {
+  font-size: 18px;
+}
+
+.organization__section .row .organization__button {
+  padding: 15px;
+  border: solid #BFBFBF;
+  border-width: thin;
+  border-radius: 5px;
+}
+
+.organization__section .row .organization__button:hover {
+  box-shadow: 1px 1px #BFBFBF;
+}
+
+.card__city_section {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 150px;
+}
+
+.card__city_section h1 {
+  font-size: 45px;
+}
+
+.card__city_section .section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__city_section .section .card__city {
+  width: 19%;
+  height: 320px;
+  background-color: black;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__city_section .section .card__city:hover {
+  box-shadow: 1px 1px #BFBFBF;
+}
+
+.card__city_section .section .card__city span {
+  font-size: 25px;
+  color: white;
+  z-index: 999;
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translate(-50%, -50%);
+}
+
+.card__city_section .section .card__city img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.card__city_section .section .card__city img:hover {
+  opacity: 0.5;
+}
+
+.reference__section {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.reference__section h1 {
+  font-size: 55px;
+  margin-bottom: 150px;
+}
+
+.reference__section .row {
+  margin-top: 25px;
+}
+
+.reference__section .row .reference__section__item i {
+  font-size: 60px;
+  margin-bottom: 25px;
+  color: #e3342f;
+}
+
+.reference__section .row .reference__section__item h2 {
+  margin-bottom: 25px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: #324E5B;
+  color: white;
+  padding: 20px;
+}
+
+footer .footer {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+footer .footer .footer__section {
+  width: 33.3%;
+}
+
+footer .footer .footer__section .title__section {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
 .container .hidden {
   display: none;
 }

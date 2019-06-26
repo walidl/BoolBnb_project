@@ -1,0 +1,25 @@
+footer{
+
+  display: flex;
+  justify-content: center;
+  background-color: #324E5B;
+  color: white;
+  padding: 20px;
+
+  .footer{
+
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+
+    .footer__section{
+      width: 33.3%;
+
+      .title__section{
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

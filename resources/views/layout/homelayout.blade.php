@@ -84,6 +84,44 @@
       <main class="py-4">
           @yield('content')
       </main>
+      <footer>
+        <div class="footer">
+          <div class="footer__section">
+            <p class="title__section">airbnb</p>
+            <p>opportunita di lavoro</p>
+            <p>stampa</p>
+            <p>condizioni</p>
+            <p>aiuto</p>
+            <p>diversità e <br> appartenenza</p>
+            <p>informazioni di contatto</p>
+
+          </div>
+          <div class="footer__section">
+            <p class="title__section">scopri</p>
+            <p>affidabilità e sicurezza</p>
+            <p>travel credit</p>
+            <p>cittadino di boolb&b</p>
+            <p>viaggio di lavoro</p>
+            <p>guide</p>
+          </div>
+          <div class="footer__section">
+            <p class="title__section">ospita</p>
+            <p>perchè affittare</p>
+            <p>ospitalità</p>
+            <p>comunity center</p>
+            <p>offri un esperienza</p>
+            <p>open home</p>
+          </div>
+          <div class="footer__section">
+            <p class="title__section">social</p>
+            <p>opportunità di lavoro</p>
+            <p>stampa</p>
+            <p>condizioni</p>
+          </div>
+
+        </div>
+
+      </footer>
     </div>
 </body>
 </html>
