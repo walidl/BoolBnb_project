@@ -7,6 +7,19 @@
 
   table{
 
+    thead{
+
+      tr{
+
+        .del-btn{
+
+          background-color: Transparent;
+          border:none;
+          cursor:auto;
+        }
+      }
+    }
+
     tbody{
 
       tr{
@@ -18,19 +31,20 @@
           cursor:pointer;
         }
 
+        .sent-date{
+
+          white-space: nowrap;
+        }
         td{
 
-          form{
 
-            button{
+          button{
 
-              background-color: Transparent;
-              border:none;
-            }
+            background-color: Transparent;
+            border:none;
           }
         }
       }
     }
   }
-
 }

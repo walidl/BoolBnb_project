@@ -10654,13 +10654,23 @@ a.text-dark:focus {
   display: none;
 }
 
+.container table thead tr .del-btn {
+  background-color: Transparent;
+  border: none;
+  cursor: auto;
+}
+
 .container table tbody tr:hover {
   background: darkgrey;
   font-weight: bold;
   cursor: pointer;
 }
 
-.container table tbody tr td form button {
+.container table tbody tr .sent-date {
+  white-space: nowrap;
+}
+
+.container table tbody tr td button {
   background-color: Transparent;
   border: none;
 }

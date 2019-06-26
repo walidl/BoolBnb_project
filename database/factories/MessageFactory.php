@@ -7,9 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Message::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence(4),
-        'content' => $faker->text(200),
+        'title' => $faker->sentence(2),
+        'content' => $faker->text(150),
         'sender'=> $faker->safeEmail,
-        'sent_date' => $faker->date('Y-m-d', 'now')
+        'sent_date' => $faker->date('m-d', 'now')
     ];
 });

@@ -11,9 +11,14 @@
             <th><input type="checkbox" name="" value=""></th>
             <th scope="col"><i class="far fa-star"></th>
             <th scope="col"><i class="far fa-clock"></i></th>
-            <th scope="col">Title</th>
+            {{-- <th scope="col">Title</th> --}}
+            <th scope="col contMess">Content</th>
             <th scope="col">Sender</th>
-            <th> <i class="far fa-trash-alt"></i></th>
+            <th>
+              <button class="del-btn">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -21,10 +26,10 @@
           <tr class="message">
             <th><input type="checkbox" name="" value=""></th>
             <th scope="row"><i class="far fa-star"></th>
-            <td class="elemTab">{{$message-> sent_date}}</td>
-            <td class="elemTab">{{$message-> title}}</td>
-            <td class="messCont elemTab hidden">{{$message-> content}}</td>
-            <td class="sendMess elemTab">{{$message-> sender}}</td>
+            <td class="sent-date">{{$message-> sent_date}}</td>
+            {{-- <td>{{$message-> title}}</td> --}}
+            <td class="contMess">{{$message-> content}}</td>
+            <td>{{$message-> sender}}</td>
             <td>
               <form action="{{ route('destroyMess', $message->id)}}" method="post">
                 @csrf
@@ -32,11 +37,8 @@
                 <button class="delete" type="submit" name="button"><i class="fas fa-trash-alt"></i></button>
               </form>
             </td>
-            {{-- <td>
-              {{-- <div class="hidden">
-                ciao
-              </div> --}}
-            {{-- </td> --}}
+            <td class="messCont hidden">{{$message-> content}}</td>
+
           </tr>
         @endforeach
         </tbody>
