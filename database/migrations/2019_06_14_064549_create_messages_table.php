@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('content');
+            $table->string('sender');
             $table->string('sent_date');
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('rental_id')->unsigned()->index();
