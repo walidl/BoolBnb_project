@@ -10650,6 +10650,19 @@ a.text-dark:focus {
   }
 }
 
+.navbar__left {
+  height: 100%;
+  width: 50%;
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar__left .navbar_logo img {
+  width: 50px;
+}
+
 .container .hidden {
   display: none;
 }
