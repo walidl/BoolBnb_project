@@ -4,33 +4,37 @@
 
   <div class="container">
     <form>
-      <div class="form-group d-flex" >
+      <div class="form-group d-flex align-items-center px-3" >
         <div id="search-panel" class="mr-2"></div>
 
         <input id="addr" type="hidden" name="address" value="">
         <input id="lat" type="hidden" class="coordinate" name="lat" value="">
         <input id="lon" type="hidden" class="coordinate" name="lon" value="">
+
         <input type="number"  min="20" class="form-control col-3" id="radius" value="20">
+
 
         <div id="map" class="d-none" >
         </div>
 
       </div>
       {{-- <input type="text" class=" sensitive form-control " id="search-title" placeholder="Search"> --}}
+      <div class="d-flex">
 
-      <div class="form-group">
-        <label for="search-rooms">Rooms</label>
-        <input type="number"  min="1" max="10" class=" sensitive form-control" id="search-rooms">
-      </div>
-      <div class="form-group">
-        <label for="search-beds">beds</label>
-        <input type="number"  min="1" max="10" class=" sensitive form-control" id="search-beds">
+        <div class="form-group col-6">
+          <label for="search-rooms">Rooms</label>
+          <input type="number"  min="1" max="10" class=" sensitive form-control" id="search-rooms">
+        </div>
+        <div class="form-group col-6">
+          <label for="search-beds">beds</label>
+          <input type="number"  min="1" max="10" class=" sensitive form-control" id="search-beds">
+        </div>
       </div>
 
-      <div class="mt-2">
+      <div class="mt-2 d-flex">
         @foreach ($services as $service)
-          <div class="">
-            <input type="checkbox" class="services " value="{{$service->id}}" > <label class="m-0  ml-1 mr-2"><i class="{{$service->icon}}"></i>  </label>
+          <div class="d-flex flex-column align-items-center mx-2">
+            <label class="m-0  ml-1 mr-2"><i class="{{$service->icon}}"></i>  </label><input type="checkbox" class="services " value="{{$service->id}}" >
           </div>
         @endforeach
 
