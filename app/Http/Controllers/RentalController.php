@@ -51,14 +51,17 @@ class RentalController extends Controller
     $rental = new Rental;
     //Inserimento valori validati
     $rental->title = $validData['title'];
+    $rental->description = $validData['description'];
+
     $rental->rooms = $validData['rooms'];
-    $rental->bedrooms = $validData['bedrooms'];
+    $rental->beds = $validData['beds'];
     $rental->bathrooms = $validData['bathrooms'];
     $rental->square_meters = $validData['square_meters'];
     $rental->address = $validData['address'];
     $rental->lat = $validData['lat'];
     $rental->lon = $validData['lon'];
     $rental->image = $fileNameToStore;
+    $rental->user_id = auth()->user()->id;
 
     // Salva
     $rental->save();
