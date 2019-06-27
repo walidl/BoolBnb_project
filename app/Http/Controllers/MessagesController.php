@@ -23,4 +23,12 @@ class MessagesController extends Controller
       return view('pages.private-messages', compact('messages'));
     }
   }
+
+  public function destroyMess($id){
+
+    $message = Message::findOrFail($id);
+    $message->delete();
+
+    return redirect(route('printMess', auth()->user()->id));
+  }
 }

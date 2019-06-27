@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rental extends Model
 {
-  protected $fillable =['title','rooms','beds','bathrooms','bedrooms','square_meters','address','lat','lon','user_id'];
+  protected $fillable =['title', 'description','rooms','beds','bathrooms','square_meters','address','lat','lon','user_id'];
 
   function services(){
 
@@ -76,5 +76,18 @@ class Rental extends Model
       }
 
     }
+  }
+
+  public function ScopeDistance($query,$latitude,$longitude,$radius)
+  {
+
+    return $query->select('rentals.*')
+        ->selectRaw('( 6371 * acos( cos( radians(?) ) *
+                           cos( radians( lat ) )
+                           * cos( radians( lon ) - radians(?)
+                           ) + sin( radians(?) ) *
+                           sin( radians( lat ) ) )
+                         ) AS distance', [$latitude, $longitude, $latitude])
+        ->havingRaw("distance < ?", [$radius]);
   }
 }

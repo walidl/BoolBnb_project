@@ -26,9 +26,11 @@ class RentalRequest extends FormRequest
       return [
 
         'title' => 'required',
+        'description' => 'required',
+
         'rooms' => 'required|',
         'bathrooms' => 'required',
-        'bedrooms' => 'required',
+        'beds' => 'required',
         'square_meters' => 'required',
         'address' => 'required',
         'lat' => 'required',

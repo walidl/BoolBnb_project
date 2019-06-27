@@ -10650,17 +10650,29 @@ a.text-dark:focus {
   }
 }
 
-.container .title-pmess {
-  color: #e3342f;
+.container .hidden {
+  display: none;
 }
 
-.container table .mess-received {
-  width: 150px;
+.container table thead tr .del-btn {
+  background-color: Transparent;
+  border: none;
+  cursor: auto;
 }
 
-.container table tr td p {
+.container table tbody tr:hover {
+  background: darkgrey;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container table tbody tr .sent-date {
   white-space: nowrap;
-  text-overflow: ellipsis;
+}
+
+.container table tbody tr td button {
+  background-color: Transparent;
+  border: none;
 }
 
 #map {

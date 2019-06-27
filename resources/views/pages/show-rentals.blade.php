@@ -34,7 +34,9 @@
             <div class="">
               Surface: {{$rental->square_meters}} m<sup>2</sup>
             </div>
-
+            <div class="">
+              Description: {{$rental->description}}
+            </div>
             <div class="">
 
 

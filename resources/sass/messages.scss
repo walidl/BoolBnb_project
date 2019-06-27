@@ -1,28 +1,50 @@
 .container{
 
+  .hidden{
 
+    display: none;
+  }
 
-    .title-pmess{
+  table{
 
-      color: $red;
-    }
-
-    table{
-
-      .mess-received{
-
-        width:150px;
-      }
+    thead{
 
       tr{
-        td  {
-          p{
 
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
+        .del-btn{
+
+          background-color: Transparent;
+          border:none;
+          cursor:auto;
         }
       }
     }
 
+    tbody{
+
+      tr{
+
+        &:hover{
+
+          background: darkgrey;
+          font-weight: bold;
+          cursor:pointer;
+        }
+
+        .sent-date{
+
+          white-space: nowrap;
+        }
+        td{
+
+
+          button{
+
+            background-color: Transparent;
+            border:none;
+          }
+        }
+      }
+    }
+  }
 }
