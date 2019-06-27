@@ -1,0 +1,17 @@
+.navbar__left{
+
+  height: 100%;
+  width: 50%;
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .navbar_logo{
+
+    img{
+
+      width: 50px;
+    }
+  }
+}
