@@ -7,11 +7,27 @@
   justify-content: flex-start;
   align-items: center;
 
+
   .navbar_logo{
 
     img{
 
       width: 50px;
     }
+
+    &:hover{
+
+      cursor:pointer;
+    }
+  }
+}
+
+.navbar__right{
+
+  float: right;
+
+  &:hover{
+
+    cursor:pointer;
   }
 }
