@@ -32,7 +32,7 @@ class RentalController extends Controller
     $services = Service::all();
     return view('pages.new-rental',compact('services'));
   }
-  
+
   public function storeRental(RentalRequest $request){
 
     $validData = $request->validated();
@@ -75,6 +75,26 @@ class RentalController extends Controller
     return redirect(route('rental.show-all'));
 
 
+  }
+
+  public function editRental($id){
+    $rental = Rental::findOrFail($id);
+
+    if(auth()->user()->id != $rental->user->id){//Modifica permessa solo al proprietario dell'appartamento
+      return redirect('rentals/all');
+    }else {
+      $services = Service::all();
+      return view('pages.edit-rental',compact('rental','services'));
+    }
+  }
+
+  public function updateRental(RentalRequest $request,$id){
+    $validateData = $request->validated();
+    $rental = Rental::findOrFail($id);
+    $rental->update($validateData);
+    $rental->services()->sync($request->services);
+
+    return redirect(route('rental.show-all'));
   }
 
 }
