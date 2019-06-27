@@ -27,9 +27,9 @@
                 {!! $errors->first('rooms', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <div class="form-group">
-              <label for="bedrooms">Bedrooms</label>
-              <input type="number"  min="1" max="10" class="form-control {{$errors->has('bedrooms') ? "border-danger" : "" }}" name = "bedrooms">
-                {!! $errors->first('bedrooms', '<small class="form-text text-danger">:message</small>') !!}
+              <label for="bedrooms">Beds</label>
+              <input type="number"  min="1" max="10" class="form-control {{$errors->has('bedrooms') ? "border-danger" : "" }}" name = "beds">
+                {!! $errors->first('beds', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <div class="form-group">
               <label for="bathrooms">Bathrooms</label>
@@ -48,7 +48,7 @@
               {!! $errors->first('address', '<small class="form-text text-danger">:message</small>') !!} --}}
               <div id="search-panel">
               </div>
-              
+
               <input id="addr" type="hidden" name="address" value="">
               <input id="lat" type="hidden" name="lat" value="">
               <input id="lon" type="hidden" name="lon" value="">

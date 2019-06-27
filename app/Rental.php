@@ -77,4 +77,17 @@ class Rental extends Model
 
     }
   }
+
+  public function ScopeDistance($query,$latitude,$longitude,$radius)
+  {
+
+    return $query->select('rentals.*')
+        ->selectRaw('( 6371 * acos( cos( radians(?) ) *
+                           cos( radians( lat ) )
+                           * cos( radians( lon ) - radians(?)
+                           ) + sin( radians(?) ) *
+                           sin( radians( lat ) ) )
+                         ) AS distance', [$latitude, $longitude, $latitude])
+        ->havingRaw("distance < ?", [$radius]);
+  }
 }
