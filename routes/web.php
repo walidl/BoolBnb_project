@@ -12,6 +12,8 @@ Route::get('/rentals/sponsored', 'RentalController@sponsoredRentals')->name('ren
 
 Route::get('/rentals/new', 'RentalController@createRental')->name('rental.create')->middleware('auth');;
 Route::post('/rentals', 'RentalController@storeRental')->name('rental.store')->middleware('auth');;
+Route::get('/rental/edit/{id}', 'RentalController@editRental')->name('edit.rental')->middleware('auth');;
+Route::patch('/rental/edit/{id}', 'RentalController@updateRental')->name('update.rental')->middleware('auth');;
 
 Route::get('/inbox/{id}', 'MessagesController@printMessagesById')->name('printMess')->middleware('auth');
 Route::delete('/inbox/{id}', 'MessagesController@destroyMess')->name('destroyMess')->middleware('auth');
