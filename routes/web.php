@@ -1,7 +1,8 @@
 <?php
 
-Route::get('/', 'homepageController@viewHome')->name('viewHome');
-
+Route::get('/', function () {
+    return view('homeBool');
+});
 
 Auth::routes();
 

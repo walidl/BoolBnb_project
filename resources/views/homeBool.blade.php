@@ -1,143 +1,215 @@
-@extends ('layouts.app')
+@extends ('layout.homelayout')
 
 @section('content')
-  <div class="search__section">
-    <div class="searching ">
-      <h1>Find unique places to stay all around the world.</h1>
-      <h5>Find a top-rated home with amenities you need.</h5>
+  <div class="serch__section">
+    <div class="serching ">
+      <h1>trova alloggi in tutto il mondo</h1>
+      <h5>scopri l'alloggio perfetto per ogni ocasione</h5>
       <div class="container">
 
-        <!--where-->
-        <div class="search__component col_12">
-          <span>WHERE</span>
+        <!-- dove -->
+
+        <div class="serch__component col_12">
+          <span>dove</span>
           <div class="row">
 
-            <div class="search__button col-12">
+            <div class="serch__button col-12">
               Roma
             </div>
           </div>
         </div>
 
         <!-- check-in check-out -->
+
         <div class="row">
-          <div class="search__component col-6">
-            <span>CHECK-IN</span>
+          <div class="serch__component col-6">
+            <span>dove</span>
             <div class="row">
-              <div class="search__button col-12 ">
+              <div class="serch__button col-12 ">
                 dd-mm-aaaa
               </div>
             </div>
           </div>
-          <div class="search__component col-6">
-            <span>CHECK-OUT</span>
+          <div class="serch__component col-6">
+            <span>dove</span>
             <div class="row">
-              <div class="search__button col-12 ">
+              <div class="serch__button col-12 ">
                 dd-mm-aaaa
               </div>
             </div>
           </div>
         </div>
 
-        <!--rooms guests -->
+        <!-- adulti bambini -->
+
         <div class="row">
-          <div class="search__component col-6">
-            <span>ROOMS</span>
+          <div class="serch__component col-6">
+            <span>adulti</span>
             <div class="row">
-              <div class="search__button col-12 ">
+              <div class="serch__button col-12 ">
                 2
               </div>
             </div>
           </div>
-          <div class="search__component col-6">
-            <span>GUESTS</span>
+          <div class="serch__component col-6">
+            <span>bambini</span>
             <div class="row">
-              <div class="search__button col-12 ">
+              <div class="serch__button col-12 ">
                 0
               </div>
             </div>
           </div>
         </div>
 
-        <!-- search -->
-        <div class="search__component  col_12">
+        <!-- cerca -->
+
+        <div class="serch__component  col_12">
+
           <div class="row">
-            <div class="search__button search col-12">
-              <span>Search</span>
+
+            <div class="serch__button serch col-12">
+              <span>serch</span>
             </div>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- fine serch section -->
+
+  <div class="sponsored__section container_fluid">
+    <h1>dai un occhiata alle nostre migliori lacation</h1>
+    <div class="row">
+      <div class="col-2 offset-1 room__card__small">
+        <div class="room__card__small__img">
+          <img src="https://source.unsplash.com/collection/3759609/400x300" alt="">
+        </div>
+        <div class="room__card__small__text">
+
+            <span class="adress__appartament">Firenze via del commercio 6</span>
+            <span class="specification__misur">24m²</span>
+            <span class="specification__adult">2 <i class="fas fa-user"></i> </span>
+
+          <h4 class="name__appartament">florence dream</h4>
+        </div>
+      </div>
+      <div class="col-2 room__card__small">
+        <div class="room__card__small__img">
+          <img src="https://source.unsplash.com/collection/1862377/400x300" alt="">
+        </div>
+        <div class="room__card__small__text">
+          <span class="adress__appartament">Firenze via del commercio 6</span>
+          <span class="specification__misur">24m²</span>
+          <span class="specification__adult">2 <i class="fas fa-user"></i> </span>
+          <h4 class="name__appartament">florence dream</h4>
+        </div>
+      </div>
+      <div class="col-2  room__card__small">
+        <div class="room__card__small__img">
+          <img src="https://source.unsplash.com/collection/3832136/400x300" alt="">
+        </div>
+        <div class="room__card__small__text">
+          <span class="adress__appartament">Firenze via del commercio 6</span>
+          <span class="specification__misur">24m²</span>
+          <span class="specification__adult">2 <i class="fas fa-user"></i> </span>
+          <h4 class="name__appartament">florence dream</h4>
+        </div>
+      </div>
+      <div class="col-2  room__card__small">
+        <div class="room__card__small__img">
+          <img src="https://source.unsplash.com/collection/4706605/400x300" alt="">
+        </div>
+        <div class="room__card__small__text">
+          <span class="adress__appartament">Firenze via del commercio 6</span>
+          <span class="specification__misur">24m²</span>
+          <span class="specification__adult">2 <i class="fas fa-user"></i> </span>
+          <h4 class="name__appartament">florence dream</h4>
+        </div>
+      </div>
+      <div class="col-2  room__card__small">
+        <div class="room__card__small__img">
+          <img src="https://source.unsplash.com/collection/2292143/400x300" alt="">
+        </div>
+        <div class="room__card__small__text">
+          <span class="adress__appartament">Firenze via del commercio 6</span>
+          <span class="specification__misur">24m²</span>
+          <span class="specification__adult">2 <i class="fas fa-user"></i> </span>
+          <h4 class="name__appartament">florence dream</h4>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- fine search section -->
-  <div class="sponsored__section container">
-    <h1>Get a look to our best homes.</h1>
-    <div class="row ">
-      @foreach($rentals as $rental)
-        <div class="col-4 room__card__small">
-          <div class="room__card__small__img ciao" style="background-image:url({{asset('storage/images/'.$rental->image)}})">
-          </div>
-          <div class="room__card__small__text">
-            <h4 class="name__appartament">{{ $rental -> title }}</h4>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  </div>
   <div class="container organization__section ">
-    <h1>Plan your trip</h1>
+    <h1>organizza viaggi per te o per gli altri</h1>
     <div class="row">
       <div class="col-3 offset-3">
+        <span>trova alloggi</span>
         <div class="organization__button col-12">
-          <span>Find homes</span>
+          <span>esplora</span>
         </div>
       </div>
       <div class="col-3">
+        <span>diventa host</span>
         <div class="organization__button col-12">
-          <span>Become a host</span>
+          <span>ospita</span>
         </div>
       </div>
     </div>
   </div>
   <div class="card__city_section">
-    <h1>Recommended for you</h1>
+
+    <h1>consigliati per te</h1>
     <div class="section">
-      <div class="card__city" style="background-image:url('https://source.unsplash.com/collection/656615/600x800')">
-        <span>London</span>
+      <div class=" card__city  ">
+        <span>london</span>
+        <img src="https://source.unsplash.com/collection/656615/600x800" alt="" class="">
       </div>
-      <div class="card__city" style="background-image:url('https://source.unsplash.com/collection/1203498/600x800')">
-        <span>Paris</span>
+      <div class=" card__city">
+        <span>paris</span>
+        <img src="https://source.unsplash.com/collection/1203498/600x800" alt="" class="">
       </div>
-      <div class="card__city" style="background-image:url('https://source.unsplash.com/collection/2145666/600x800')">
-        <span>Berlin</span>
+      <div class=" card__city">
+        <span>berlin</span>
+        <img src="https://source.unsplash.com/collection/2145666/600x800" alt="" class="">
       </div>
-      <div class="card__city" style="background-image:url('https://source.unsplash.com/collection/2082503/600x800')">
-        <span>Rome</span>
+      <div class=" card__city">
+        <span>rome</span>
+        <img src="https://source.unsplash.com/collection/2082503/600x800" alt="" class="">
       </div>
-      <div class="card__city" style="background-image:url('https://source.unsplash.com/collection/1847877/600x800')">
-        <span>New York</span>
+      <div class=" card__city">
+        <span>new york</span>
+        <img src="https://source.unsplash.com/collection/1847877/600x800" alt="" class="">
       </div>
+
     </div>
   </div>
   <div class="reference__section container-fluid">
-    <h1>Travel with BoolBnb</h1>
+    <h1>viaggia con boolb&b </h1>
     <div class="row">
       <div class="col-2 offset-2 reference__section__item">
-        <i class="fas fa-phone"></i>
-        <h2>Customer service</h2>
-        <p>We are at your disposal night and day. <br> Contact our support team from anywhere in the world, anytime. </p>
+      <i class="fas fa-phone"></i>
+      <h2>Assisitenza clienti h24</h2>
+      <p>Siamo a tua disposizione giorno e notte. Contatta il nostro team di assistenza da qualunque parte del mondo, a ogni ora del giorno. </p>
+
       </div>
       <div class="col-2  offset-1 reference__section__item">
         <i class="fas fa-home"></i>
-        <h2>Ospitality standard</h2>
-        <p>After each stay, guests leave a review on thier host. To continue to stay on BoolBnb, all hosts must obtain a minimum rating and guarantee our hospitality standards. </p>
+        <h2>Standard di ospitalità globali</h2>
+        <p>Dopo ogni soggiorno, gli ospiti lasciano una recensione sui propri host. Per continuare a restare su Airbnb, tutti gli host devono ottenere una valutazione minima e garantire i nostri standard di ospitalità.</p>
+
       </div>
       <div class="col-2 offset-1 reference__section__item">
         <i class="fas fa-user"></i>
-        <h2>Five stars hosts</h2>
-        <p>From freshly pressed sheets to advice on the best restaurants, our hosts are models of local hospitality.</p>
+        <h2>Host da <br> 5 stelle</h2>
+        <p>Dalle lenzuola stirate di fresco ai consigli sui ristoranti migliori, i nostri host sono modelli di ospitalità locale.</p>
+
       </div>
     </div>
   </div>
+
 @stop
