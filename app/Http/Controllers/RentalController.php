@@ -32,7 +32,7 @@ class RentalController extends Controller
     $services = Service::all();
     return view('pages.new-rental',compact('services'));
   }
-  
+
   public function storeRental(RentalRequest $request){
 
     $validData = $request->validated();

@@ -10675,6 +10675,121 @@ a.text-dark:focus {
   border: none;
 }
 
+section#search-page .search-area {
+  /* The switch - the box around the slider */
+  /* Hide default HTML checkbox */
+  /* The slider */
+  /* Rounded sliders */
+}
+
+section#search-page .search-area .leaflet-control-search-input-container {
+  box-shadow: none;
+  height: 37.03px;
+  border: 1px solid #ced4da;
+  font-size: 0.9rem;
+}
+
+section#search-page .search-area .leaflet-control-search-results-container {
+  position: absolute;
+  top: 37.03px;
+}
+
+section#search-page .search-area small {
+  font-weight: bold;
+}
+
+section#search-page .search-area .input-container {
+  width: 150px;
+}
+
+section#search-page .search-area .switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  float: right;
+}
+
+section#search-page .search-area .switch input {
+  display: none;
+}
+
+section#search-page .search-area .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eff1f3;
+  transition: 0.4s;
+}
+
+section#search-page .search-area .slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  transition: 0.4s;
+}
+
+section#search-page .search-area input.default:checked + .slider {
+  background-color: #188E9F;
+}
+
+section#search-page .search-area input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+section#search-page .search-area input:checked + .slider:before {
+  left: calc(100% - 19px);
+}
+
+section#search-page .search-area .slider.round {
+  border-radius: 34px;
+}
+
+section#search-page .search-area .slider.round:before {
+  border-radius: 50%;
+}
+
+section#search-page .search-area .logo {
+  font-size: 18px;
+  opacity: 0.7;
+  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+section#search-page .search-area .logo.active {
+  opacity: 1;
+}
+
+section#search-page .rental-card {
+  width: 550px;
+  height: 200px;
+}
+
+section#search-page .rental-card .image {
+  background-position: center;
+  background-size: cover;
+}
+
+section#search-page .rental-card .card-title {
+  opacity: 0.7;
+}
+
+section#search-page .rental-card .address {
+  font-size: 14px;
+}
+
+section#search-page .rental-card .services {
+  font-size: 18px;
+}
+
 #map {
   width: 300px;
   height: 300px;

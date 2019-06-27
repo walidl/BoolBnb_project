@@ -1,4 +1,4 @@
-@foreach ($rentals as $rental)
+{{-- @foreach ($rentals as $rental)
 
   <div class="card col-5 m-2 pt-3" style="width: 18rem;">
 
@@ -23,7 +23,7 @@
         Bathrooms: {{$rental->bathrooms}}
       </div>
       <div class="">
-        Bedrooms: {{$rental->bedrooms}}
+        Bedrooms: {{$rental->beds}}
       </div>
       <div class="">
         Surface: {{$rental->square_meters}} m<sup>2</sup>
@@ -42,4 +42,43 @@
     </div>
   </div>
 
+@endforeach --}}
+
+
+
+{{-- <img src="{{asset('storage/images/'.$rental->image)}}" class="card-img-top">
+{{$rental->user->name}} {{$rental->user->lastname}} --}}
+@foreach ($rentals as $rental)
+  <div class="card rental-card d-flex flex-row m-2" >
+
+  <div class="image col-5" style="background-image: url('{{asset('storage/images/'.$rental->image)}}') ">
+
+  </div>
+  <div class=" pl-2 pt-2 col-7">
+    <h4 class="card-title">{{$rental->title}}</h4>
+    <div class="d-flex">
+      <div class="mr-2">
+        {{$rental->rooms}} <i class="fas fa-home mr-1"></i>
+      </div>
+      <div class="mr-2">
+        {{$rental->beds}} <i class="fas fa-bed mr-1"></i>
+      </div>
+
+    </div>
+    <div class="services mt-2">
+
+      @foreach ($rental->services as $service)
+        <i class="{{$service->icon}} mr-2"></i>
+      @endforeach
+    </div>
+
+    {{-- <div class=" address mb-2">
+      {{$rental->description}}
+    </div> --}}
+  </div>
+</div>
 @endforeach
+
+{{-- <div class="card-footer">
+  <a href="{{route('payment.sponsor',$rental->id)}}">Sponsor</a>
+</div> --}}

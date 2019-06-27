@@ -1,0 +1,140 @@
+section#search-page{
+
+
+  .search-area{
+
+
+
+    .leaflet-control-search-input-container{
+
+      box-shadow: none;
+      height: 37.03px;
+      border: 1px solid #ced4da;
+      font-size: 0.9rem;
+    }
+
+    .leaflet-control-search-results-container{
+
+      position:absolute;
+      top: 37.03px;
+    }
+
+    small{
+      font-weight: bold;
+
+    }
+    .input-container{
+
+      width: 150px;
+    }
+
+
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 30px;
+      height: 18px;
+      float:right;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {display:none;}
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgb(239, 241, 243);
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: white;
+      // border: 1px solid #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input.default:checked + .slider {
+      background-color: #188E9F;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      left: calc(100% - 19px);
+      // -webkit-transform: translateX(26px);
+      // -ms-transform: translateX(26px);
+      // transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .logo{
+
+      font-size: 18px;
+      opacity: 0.7;
+      transition: color 0.3s ease;
+      transition: opacity 0.3s ease;
+
+
+      &.active{
+
+        // color: green;
+        opacity: 1;
+
+      }
+    }
+
+  }
+
+  .rental-card{
+
+    width: 550px;
+    height: 200px;
+
+    .image{
+
+      background-position: center;
+      background-size: cover;
+    }
+
+    .card-title{
+
+      opacity: 0.7;
+    }
+
+    .address{
+
+      font-size: 14px;
+    }
+
+    .services{
+
+      font-size: 18px;
+    }
+  }
+
+}
