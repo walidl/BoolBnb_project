@@ -10790,6 +10790,22 @@ section#search-page .rental-card .services {
   font-size: 18px;
 }
 
+section#search-page .rental-card.sponsored {
+  border: 1px solid #745c2d;
+  position: relative;
+}
+
+section#search-page .rental-card.sponsored .card-title {
+  color: #816121;
+}
+
+section#search-page .rental-card.sponsored .premium {
+  position: absolute;
+  transform: translateX(-50%);
+  height: 100px;
+  z-index: 2;
+}
+
 #map {
   width: 300px;
   height: 300px;

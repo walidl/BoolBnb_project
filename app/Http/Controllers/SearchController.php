@@ -72,7 +72,7 @@ class SearchController extends Controller
       //
       if($sponsoredRentals->count() > 0){
         $found += $sponsoredRentals->count();
-        $html = view('components.rental-component', ['rentals' => $sponsoredRentals])->render();
+        $html = view('components.sponsored_rental-component', ['rentals' => $sponsoredRentals])->render();
         $result['sponsored'] = $html;
       }
       if($notSponsoredRentals->count() > 0){

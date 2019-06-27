@@ -115,6 +115,7 @@ section#search-page{
     width: 550px;
     height: 200px;
 
+
     .image{
 
       background-position: center;
@@ -134,6 +135,25 @@ section#search-page{
     .services{
 
       font-size: 18px;
+    }
+
+
+    &.sponsored{
+
+      border: 1px solid #745c2d;
+      position: relative;
+
+      .card-title{
+
+        color:#816121;
+      }
+      .premium{
+
+        position:absolute;
+        transform: translateX(-50%);
+        height: 100px;
+        z-index: 2;
+      }
     }
   }
 

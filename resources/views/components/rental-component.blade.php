@@ -55,7 +55,10 @@
 
   </div>
   <div class=" pl-2 pt-2 col-7">
-    <h4 class="card-title">{{$rental->title}}</h4>
+    <h4 class="card-title m-0 mb-1">{{$rental->title}}</h4>
+    <div class=" address mb-2">
+      {{$rental->address}}
+    </div>
     <div class="d-flex">
       <div class="mr-2">
         {{$rental->rooms}} <i class="fas fa-home mr-1"></i>
@@ -72,9 +75,6 @@
       @endforeach
     </div>
 
-    {{-- <div class=" address mb-2">
-      {{$rental->description}}
-    </div> --}}
   </div>
 </div>
 @endforeach
