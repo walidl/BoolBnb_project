@@ -1,14 +1,13 @@
 <?php
 
-Route::get('/', function () {
-    return view('homeBool');
-});
+Route::get('/', 'homepageController@homeRental');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/rentals/all', 'RentalController@showRentals')->name('rental.show-all');
 Route::get('/rentals/sponsored', 'RentalController@sponsoredRentals')->name('rental.sponsored');
+
 
 Route::get('/rentals/new', 'RentalController@createRental')->name('rental.create')->middleware('auth');;
 Route::post('/rentals', 'RentalController@storeRental')->name('rental.store')->middleware('auth');;

@@ -10663,7 +10663,19 @@ a.text-dark:focus {
   width: 50px;
 }
 
-.serch__section {
+.navbar__left .navbar_logo:hover {
+  cursor: pointer;
+}
+
+.navbar__right {
+  float: right;
+}
+
+.navbar__right:hover {
+  cursor: pointer;
+}
+
+.search__section {
   width: 100%;
   height: 800px;
   background-color: #e3342f;
@@ -10672,11 +10684,11 @@ a.text-dark:focus {
   position: relative;
 }
 
-.serch__section .serching {
+.search__section .searching {
   border-radius: 5px;
   background-color: white;
   width: 550px;
-  height: 480px;
+  height: 500px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10684,23 +10696,23 @@ a.text-dark:focus {
   padding: 20px;
 }
 
-.serch__section .serching .serch__component .row {
+.search__section .searching .search__component .row {
   padding-top: 5px;
   padding-bottom: 20px;
 }
 
-.serch__section .serching .serch__component .serch__button {
+.search__section .searching .search__component .search__button {
   border: solid #BFBFBF;
   border-radius: 3px;
   border-width: thin;
   padding: 10px;
 }
 
-.serch__section .serching .serch__component .serch__button:hover {
+.search__section .searching .search__component .search__button:hover {
   box-shadow: 1px 1px #BFBFBF;
 }
 
-.serch__section .serching .serch__component .serch {
+.search__section .searching .search__component .search {
   text-align: center;
   color: white;
   background-color: #e3342f;
@@ -10714,29 +10726,38 @@ a.text-dark:focus {
 
 .sponsored__section h1 {
   text-align: center;
-  margin-bottom: 20px;
+  padding: 20px;
   font-size: 55px;
 }
 
 .sponsored__section .room__card__small {
   height: 320px;
+  min-width: 360px;
   padding: 10px;
 }
 
-.sponsored__section .room__card__small__img {
+.sponsored__section .room__card__small .room__card__small__img {
   height: 80%;
   width: 100%;
   overflow: hidden;
-  background-color: black;
   border-radius: 3px;
-}
-
-.sponsored__section .room__card__small__img img {
+  background-position: center;
+  background-size: cover;
   opacity: 0.7;
 }
 
-.sponsored__section .room__card__small__img img:hover {
+.sponsored__section .room__card__small .room__card__small__img:hover {
   opacity: 0.5;
+}
+
+.sponsored__section .room__card__small .room__card__small__text h4 {
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.sponsored__section .room__card__small:hover {
+  cursor: pointer;
 }
 
 .sponsored__section .room__card__small__text {
@@ -10762,6 +10783,7 @@ a.text-dark:focus {
 
 .organization__section h1 {
   font-size: 55px;
+  padding: 20px;
 }
 
 .organization__section .row {
@@ -10773,6 +10795,8 @@ a.text-dark:focus {
   border: solid #BFBFBF;
   border-width: thin;
   border-radius: 5px;
+  background-color: #e3342f;
+  color: white;
 }
 
 .organization__section .row .organization__button:hover {
@@ -10786,7 +10810,9 @@ a.text-dark:focus {
 }
 
 .card__city_section h1 {
-  font-size: 45px;
+  font-size: 55px;
+  text-align: center;
+  padding: 20px;
 }
 
 .card__city_section .section {
@@ -10801,6 +10827,8 @@ a.text-dark:focus {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+  background-position: center;
+  background-size: cover;
 }
 
 .card__city_section .section .card__city:hover {
@@ -10811,6 +10839,7 @@ a.text-dark:focus {
   font-size: 25px;
   color: white;
   z-index: 999;
+  white-space: nowrap;
   position: absolute;
   left: 50%;
   bottom: 7%;
@@ -10836,7 +10865,7 @@ a.text-dark:focus {
 
 .reference__section h1 {
   font-size: 55px;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 
 .reference__section .row {
@@ -10854,27 +10883,44 @@ a.text-dark:focus {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
   background-color: #324E5B;
   color: white;
-  padding: 20px;
+  padding: 30px;
 }
 
-footer .footer {
+footer .row {
+  display: flex;
+  justify-content: center;
+}
+
+footer .row .footer {
   width: 60%;
   display: flex;
   justify-content: flex-start;
 }
 
-footer .footer .footer__section {
+footer .row .footer .footer__section {
   width: 33.3%;
 }
 
-footer .footer .footer__section .title__section {
+footer .row .footer .footer__section .title__section {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 30px;
+}
+
+footer .row .footer .footer__section .title__section .social__section {
+  padding: 10px;
+}
+
+footer .fooFoo {
+  border-top: 1px solid white;
+  padding-top: 20px;
+  text-align: center;
+}
+
+footer .fooFoo .copyrights {
+  display: inline;
 }
 
 .container .hidden {
