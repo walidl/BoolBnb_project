@@ -7,11 +7,10 @@ use App\Rental;
 
 class homepageController extends Controller
 {
-  public function homepageView(){
-
+  function homeRental(){
 
     $rentals = Rental::notSponsored()->get();
 
-    return view('pages.homeBool',compact('rentals'));
+    return view('homeBool', compact('rentals'));
   }
 }
