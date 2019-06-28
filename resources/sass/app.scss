@@ -1,7 +1,12 @@
+#map{
+  width: 300px;
+  height: 300px;
+}
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
+// VariablesEW
 @import 'variables';
 
 // Bootstrap
@@ -10,14 +15,21 @@
 //Fontawesome
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
+//Navbar
+@import 'navbar';
+
+//HomeContent
+@import 'homeContent';
+
+//Footer
+@import'footer';
+
 //Messages
 @import 'messages';
 
+//NewRental
+@import 'newRental';
 //searchpage
 @import 'search-page';
 
 
-#map{
-  width: 300px;
-  height: 300px;
-}
