@@ -87,8 +87,8 @@
 
       @foreach ($rentals as $rental)
 
-        <div class=" room__card__small">
-          <div class="room__card__small__img" style="background-image: url('https://source.unsplash.com/collection/3759609/400x300')">
+        <div class=" room__card__small mb-3">
+          <div class="room__card__small__img" style="background-image: url('{{asset('storage/images/'.$rental->image)}}')">
             <div class="filter">
 
             </div>
@@ -99,16 +99,16 @@
           <div class="room__card__small__text">
 
             <div class="adress__appartament d-flex">
-
-              <span> Firenze via del commercio 6</span></div>
+              <span> {{$rental->address}}</span>
+            </div>
               {{-- <span class="specification__misur">24m²</span> --}}
               {{-- <span class="specification__adult">2 <i class="fas fa-user"></i> </span> --}}
 
-              <h4 class="name__appartament">florence dream</h4>
+              <h4 class="name__appartament">{{$rental->title}}</h4>
             </div>
           </div>
-      @stop
-      <div class=" room__card__small">
+      @endforeach
+      {{-- <div class=" room__card__small">
         <div class="room__card__small__img">
           <img src="https://source.unsplash.com/collection/1862377/400x300" alt="">
         </div>
@@ -151,7 +151,7 @@
           <span class="specification__adult">2 <i class="fas fa-user"></i> </span>
           <h4 class="name__appartament">florence dream</h4>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 
