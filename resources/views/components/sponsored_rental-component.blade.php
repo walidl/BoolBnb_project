@@ -1,10 +1,11 @@
 
 @foreach ($rentals as $rental)
   <div class="card rental-card sponsored d-flex flex-row m-2" >
-  <img  class="premium" src="http://www.cliparthut.com/clip-arts/69/vector-floral-corners-vector-download-clipart-fFE7NX.png" alt="">
 
   <div class="image col-5" style="background-image: url('{{asset('storage/images/'.$rental->image)}}') ">
-
+    <div class="sponsor-stamp">
+      SPONSOR
+    </div>
   </div>
   <div class=" pl-2 pt-2 col-7">
     <h4 class="card-title m-0 mb-1">{{$rental->title}}</h4>
@@ -20,10 +21,13 @@
       </div>
 
     </div>
-    <div class="services mt-2">
+    <div class="services mt-2 d-flex justify-content-end">
 
       @foreach ($rental->services as $service)
-        <i class="{{$service->icon}} mr-2"></i>
+        <div class="element mx-1 ">
+
+          <i class="{{$service->icon}} mr-2"></i>
+        </div>
       @endforeach
     </div>
 

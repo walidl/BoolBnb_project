@@ -60,6 +60,7 @@ class PaymentsController extends Controller
           'submitForSettlement' => true
           ]
       ]);
+      
       if ($result->success || !is_null($result->transaction)) {
           $transaction = $result->transaction;
           $this->addSponsor($rentalId,$sponsor);

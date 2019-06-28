@@ -57,10 +57,12 @@
   </div>
 
   </div>
-
+  <div class="container">
+    <h3><span id="count"></span> Results</h3>
+  </div>
   <div id="sponsored" class=" container d-none">
 
-    <h3>Sponsored</h3>
+
     <div class="row content">
 
     </div>
@@ -69,7 +71,6 @@
 
   <div id="results" class=" container d-none">
 
-    <h3>Results</h3>
     <div class=" row content">
 
     </div>
@@ -95,6 +96,9 @@
 
           console.log(dataIn);
 
+
+
+          $("#count").html(dataIn.count);
 
           if (dataIn.sponsored){
 
