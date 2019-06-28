@@ -44,10 +44,10 @@
 
             <ul class="navbar-nav ml-auto">
 
+              <li class="nav-item nav-link dropdown">Host a home</li>
+              <li class="nav-item nav-link dropdown">Host and experience</li>
                 <!-- Authentication Links -->
               @guest
-                <li class="nav-item nav-link dropdown">Host a home</li>
-                <li class="nav-item nav-link dropdown">Host and experience</li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>

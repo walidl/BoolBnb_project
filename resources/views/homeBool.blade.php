@@ -1,4 +1,4 @@
-@extends ('layout.homelayout')
+@extends ('layouts.app')
 
 @section('content')
   <div class="serch__section">
@@ -81,7 +81,7 @@
 
   <!-- fine serch section -->
 
-  <div class="sponsored__section container_fluid">
+  <div class="sponsored__section container">
     <h1>dai un occhiata alle nostre migliori lacation</h1>
     <div class="row">
       <div class="col-2 offset-1 room__card__small">
@@ -161,6 +161,7 @@
       </div>
     </div>
   </div>
+
   <div class="card__city_section">
 
     <h1>consigliati per te</h1>
@@ -188,7 +189,8 @@
 
     </div>
   </div>
-  <div class="reference__section container-fluid">
+
+  <div class="reference__section container">
     <h1>viaggia con boolb&b </h1>
     <div class="row">
       <div class="col-2 offset-2 reference__section__item">
