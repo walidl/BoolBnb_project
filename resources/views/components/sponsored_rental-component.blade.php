@@ -1,9 +1,11 @@
 
 @foreach ($rentals as $rental)
-  <div class="card rental-card d-flex flex-row m-2" >
+  <div class="card rental-card sponsored d-flex flex-row m-2" >
 
   <div class="image col-5" style="background-image: url('{{asset('storage/images/'.$rental->image)}}') ">
-
+    <div class="sponsor-stamp">
+      SPONSOR
+    </div>
   </div>
   <div class=" pl-2 pt-2 col-7">
     <h4 class="card-title m-0 mb-1">{{$rental->title}}</h4>
@@ -32,3 +34,7 @@
   </div>
 </div>
 @endforeach
+
+{{-- <div class="card-footer">
+  <a href="{{route('payment.sponsor',$rental->id)}}">Sponsor</a>
+</div> --}}

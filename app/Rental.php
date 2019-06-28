@@ -88,6 +88,7 @@ class Rental extends Model
                            ) + sin( radians(?) ) *
                            sin( radians( lat ) ) )
                          ) AS distance', [$latitude, $longitude, $latitude])
+        ->orderBy( 'distance', 'ASC' )
         ->havingRaw("distance < ?", [$radius]);
   }
 }

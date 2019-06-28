@@ -1,7 +1,12 @@
+#map{
+  width: 300px;
+  height: 300px;
+}
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
+// VariablesEW
 @import 'variables';
 
 // Bootstrap
@@ -22,7 +27,9 @@
 //Messages
 @import 'messages';
 
-#map{
-  width: 300px;
-  height: 300px;
-}
+//NewRental
+@import 'newRental';
+//searchpage
+@import 'search-page';
+
+
