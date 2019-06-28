@@ -10953,6 +10953,168 @@ footer .fooFoo .copyrights {
   border: none;
 }
 
+section#search-page .search-area {
+  /* The switch - the box around the slider */
+  /* Hide default HTML checkbox */
+  /* The slider */
+  /* Rounded sliders */
+}
+
+section#search-page .search-area .leaflet-control-search-input-container {
+  box-shadow: none;
+  height: 37.03px;
+  border: 1px solid #ced4da;
+  font-size: 0.9rem;
+}
+
+section#search-page .search-area .leaflet-control-search-results-container {
+  position: absolute;
+  top: 37.03px;
+}
+
+section#search-page .search-area small {
+  font-weight: bold;
+}
+
+section#search-page .search-area .input-container {
+  width: 150px;
+}
+
+section#search-page .search-area .switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  float: right;
+}
+
+section#search-page .search-area .switch input {
+  display: none;
+}
+
+section#search-page .search-area .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eff1f3;
+  transition: 0.4s;
+}
+
+section#search-page .search-area .slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  transition: 0.4s;
+}
+
+section#search-page .search-area input.default:checked + .slider {
+  background-color: #188E9F;
+}
+
+section#search-page .search-area input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+section#search-page .search-area input:checked + .slider:before {
+  left: calc(100% - 19px);
+}
+
+section#search-page .search-area .slider.round {
+  border-radius: 34px;
+}
+
+section#search-page .search-area .slider.round:before {
+  border-radius: 50%;
+}
+
+section#search-page .search-area .logo {
+  font-size: 18px;
+  opacity: 0.7;
+  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+section#search-page .search-area .logo.active {
+  opacity: 1;
+}
+
+section#search-page .rental-card {
+  width: 550px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+section#search-page .rental-card .image {
+  background-position: center;
+  background-size: cover;
+}
+
+section#search-page .rental-card .card-title {
+  color: #587B7F;
+}
+
+section#search-page .rental-card .address {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+section#search-page .rental-card .services {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+section#search-page .rental-card .services .element {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #119DA4;
+}
+
+section#search-page .rental-card .services .element i {
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+section#search-page .rental-card.sponsored {
+  border: 1px solid #745c2d;
+  position: relative;
+}
+
+section#search-page .rental-card.sponsored .sponsor-stamp {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  display: inline-block;
+  padding: 2px 5px;
+  background-color: #ccac00;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+section#search-page .rental-card.sponsored .card-title {
+  font-weight: 600;
+}
+
+#map {
+  width: 300px;
+  height: 300px;
 .container .row .writetoRental {
   padding: 20px;
   margin: auto;

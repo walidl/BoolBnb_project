@@ -59,32 +59,36 @@ class SearchController extends Controller
       }
 
       if($beds){
-        $q->where('bedrooms','>=',  $beds);
+        $q->where('beds','>=',  $beds);
 
       }
 
-      $rentals = $q->get();
-
-
-      if($rentals->count() > 0){
-
-        $html = view('components.rental-component', compact('rentals'))->render();
-
-      }
-      else{
-
-        $html = '<p>no data found</p>';
-      }
-
-      return response()->json([
-        'card_data' => $html
-      ]);
-
-      // $data = array(
+      // $rentals = $q->get();
+      $q2 = clone $q;
+      $notSponsoredRentals = $q->notSponsored()->get();
+      $sponsoredRentals = $q2->sponsored()->get();
+      $result = array();
+      $found = 0;
       //
-      //   'card_data' => $html
-      // );
-      // echo json_encode($data);
+      if($sponsoredRentals->count() > 0){
+        $found += $sponsoredRentals->count();
+        $html = view('components.sponsored_rental-component', ['rentals' => $sponsoredRentals])->render();
+        $result['sponsored'] = $html;
+      }
+      if($notSponsoredRentals->count() > 0){
+
+        $found += $notSponsoredRentals->count();
+        $html = view('components.rental-component', ['rentals' => $notSponsoredRentals] )->render();
+        $result['not_sponsored'] = $html;
+      }
+
+      $result["count"] = $found;
+
+
+
+      return response()->json($result);
+
+
     }
 
   }
