@@ -120,11 +120,9 @@ section#rental-page
       // height: 50px;
       float: left;
 
-      .mappa{
-        width: 90%;
-        height: 400px;
-        background-color: blue;
+      #mapR{
 
+        z-index: 0;
       }
 
 
@@ -139,15 +137,30 @@ section#rental-page
   display: inline-block;
   position:fixed;
   bottom: 0;
-  right:10%;
+  right:50px;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.2);
+  transition: width 1s ease;
+
+  &.sent{
+
+    width: 230px;
+  }
 
   .contact-renter{
 
     width: 100%;
     height: 40px;
-    background: red;
+    background: #283E4A;
     padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor:pointer;
+
+    .fa-check{
+
+      color: lightgreen;
+    }
   }
 
   .message{

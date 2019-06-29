@@ -74,7 +74,7 @@
 </section>
 <div id="send-message">
   <div class="contact-renter d-flex justify-content-center align-items-center">
-    Contact renter
+    Contact renter <i class="fas fa-envelope-open-text ml-2"></i>
   </div>
   <div class=" message py-2 px-1"  style="display: none">
     <form class="" action="index.html" method="post">
@@ -106,6 +106,18 @@
 
     })
 
+    function messageSent(){
+
+      etichetta.click();
+      var logo = "<i class='fas fa-check ml-2'>"
+      etichetta.html("messaggio inviato" + logo).css("pointer-events","none")
+               .closest("#send-message").addClass('sent');
+
+
+
+
+    }
+
     //Invio messaggio
     jQuery('#btn').click(function(e){
              e.preventDefault();
@@ -122,11 +134,14 @@
                 data: {
                    content: jQuery('#content').val(),
                    sender : jQuery('#sender').val(),
-                   user_id : {{ $rental->id }},
-                   rental_id : {{ auth()->user()->id }}
+                   user_id : {{  auth()->user()->id }},
+                   rental_id : {{$rental->id}}
                 },
                 success: function(result){
-                   console.log(result);
+                   if(result.success){
+                     console.log(result);
+                     messageSent();
+                   }
                 },
                 error : function(error){
                   console.log(error);

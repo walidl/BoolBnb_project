@@ -18,7 +18,7 @@ class MessagesController extends Controller
     }else{
 
       $user = User::findOrFail($id);
-      $messages = $user->messages;
+      $messages = $user->messages()->orderBy('sent_date','DESC')->get();
 
       return view('pages.private-messages', compact('messages'));
     }
@@ -38,8 +38,8 @@ class MessagesController extends Controller
     $message->content = $request->content;
     $message->sender = $request->sender;
     $message->sent_date = date('m-d');
-    $message->user_id = $request->user_id;
-    $message->rental_id = $request->rental_id;
+    $message->user_id = (int)$request->user_id;
+    $message->rental_id = (int)$request->rental_id;
 
     $message->save();
 

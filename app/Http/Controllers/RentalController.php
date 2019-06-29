@@ -71,7 +71,7 @@ class RentalController extends Controller
     $services = Service::find($servicesIDs);
     $rental->services()->sync($services);
 
-    return redirect(route('rental.show-all'));
+    return redirect(route('user.rentals'));
 
 
   }
