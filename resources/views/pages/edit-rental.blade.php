@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-8 ml-col-2 writetoRental">
         <h1>Edit a home </h1>
-          <form class="" action="{{ route('update.rental',$rental->id) }}" method="post" enctype="multipart/form-data">
+          <form id="form" class="" action="{{ route('update.rental',$rental->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <div class="form-group" >
