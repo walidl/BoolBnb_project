@@ -27,7 +27,7 @@
         <div class="page__content__left">
 
           <div class="text__title">
-            <span>{{$rental->address}}</span>
+            <span id="address">{{$rental->address}}</span>
             <h1>{{$rental->title}}</h1>
             <div class="information">
               <span>{{$rental->square_meters}}m<sup>2</sup> </span>
@@ -59,8 +59,9 @@
 
 
         <div class="page__content__right">
-          <div class="mappa">
-
+          <div id="mapR">
+          </div>
+          <div id="search-panel" style="display:none">
           </div>
 
       </div>
@@ -78,15 +79,14 @@
   <div class=" message py-2 px-1"  style="display: none">
     <form class="" action="index.html" method="post">
       <div class="form-group">
-        <input type="email" class="form-control " name = "email" placeholder="Enter your E-mail">
+        <input id="sender" type="email" class="form-control " name = "email" placeholder="Enter your E-mail">
       </div>
       <div class="form-group">
 
-        <textarea class="form-control message" placeholder="Your Message" rows="10"></textarea>
+        <textarea id="content" class="form-control message" placeholder="Your Message" rows="10"></textarea>
       </div>
 
-
-      <button type="submit" class="btn btn-primary">Send Message</button>
+      <button id="btn" class="btn btn-primary">Send Message</button>
 
     </form>
   </div>
@@ -105,7 +105,61 @@
       $(this).siblings('.message').slideToggle();
 
     })
-  }
+
+    //Invio messaggio
+    jQuery('#btn').click(function(e){
+             e.preventDefault();
+
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+             jQuery.ajax({
+                url: "{{ route('message.store') }}",
+                method: 'post',
+                data: {
+                   content: jQuery('#content').val(),
+                   sender : jQuery('#sender').val(),
+                   user_id : {{ $rental->id }},
+                   rental_id : {{ auth()->user()->id }}
+                },
+                success: function(result){
+                   console.log(result);
+                },
+                error : function(error){
+                  console.log(error);
+                }
+              });
+          });
+
+    //Mappa
+    var latR = {{$rental->lat}};
+    var lonR = {{$rental->lon}};
+    var address = $("#address").text();
+    console.log(address);
+
+    var mapR = tomtom.L.map('mapR', {
+      key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',
+      center : [latR,lonR],
+      zoom: 18
+    });
+
+    tomtom.fuzzySearch().query(address).go(function (result) {
+     var latF = result[0].position.lat;
+     var lonF = result[0].position.lon;
+
+
+     var markers = new L.TomTomMarkersLayer().addTo(mapR);
+     markers.setMarkersData([[latF,lonF]]);
+
+     markers.addMarkers();
+     map.fitBounds(markers.getBounds());
+  });
+
+
+}
 
 
 

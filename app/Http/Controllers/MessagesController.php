@@ -31,4 +31,18 @@ class MessagesController extends Controller
 
     return redirect(route('printMess', auth()->user()->id));
   }
+
+  public function storeMessage(Request $request){
+    $message = new Message();
+
+    $message->content = $request->content;
+    $message->sender = $request->sender;
+    $message->sent_date = date('m-d');
+    $message->user_id = $request->user_id;
+    $message->rental_id = $request->rental_id;
+
+    $message->save();
+
+    return response()->json(["success"=>"true"]);
+  }
 }
