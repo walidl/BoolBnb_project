@@ -9,22 +9,21 @@ use App\Service;
 
 class RentalController extends Controller
 {
-  public function showRentals(){
+  // public function showRentals(){
+  //
+  //   $sponsoredRentals = Rental::sponsored()->get();
+  //   $notSponsoredRentals = Rental::notSponsored()->get();
+  //   $rentals = $sponsoredRentals->merge($notSponsoredRentals);
+  //
+  //   return view('pages.show-rentals',compact('rentals'));
+  // }
 
-    $sponsoredRentals = Rental::sponsored()->get();
-    $notSponsoredRentals = Rental::notSponsored()->get();
-    $rentals = $sponsoredRentals->merge($notSponsoredRentals);
-
-    return view('pages.show-rentals',compact('rentals'));
-  }
-
-  public function sponsoredRentals(){
-
-    $rentals = Rental::sponsored()->get();
-
-    return view('pages.show-rentals',compact('rentals'));
+  public function showRental($id){
 
 
+    $rental = Rental::findOrFail($id);
+
+    return view('pages.rental-page',compact('rental'));
   }
 
   public function createRental(){
