@@ -29,6 +29,21 @@ class Rental extends Model
     return $this->hasMany(Message::class);
   }
 
+  public function checkService($serviceId){
+
+
+    foreach ($this->services as $service) {
+
+      if($service->id == $serviceId){
+
+        return "checked";
+      }
+
+    }
+
+    return "";
+  }
+
   public function scopeSponsored($query)
   {
 

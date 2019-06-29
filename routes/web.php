@@ -4,8 +4,10 @@ Route::get('/', 'homepageController@homeRental');
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/rentals/all', 'RentalController@showRentals')->name('rental.show-all');
+Route::get('/user/rentals', 'HomeController@showUserRentals')->name('user.rentals');
 Route::get('/rentals/sponsored', 'RentalController@sponsoredRentals')->name('rental.sponsored');
 
 

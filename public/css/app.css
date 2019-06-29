@@ -11272,6 +11272,7 @@ section#rental-page .page__content .page__content__right .mappa {
   position: fixed;
   bottom: 0;
   right: 10%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 #send-message .contact-renter {
@@ -11279,8 +11280,6 @@ section#rental-page .page__content .page__content__right .mappa {
   height: 40px;
   background: red;
   padding: 10px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 #send-message .message {
@@ -11291,5 +11290,24 @@ section#rental-page .page__content .page__content__right .mappa {
 #send-message .message textarea {
   resize: none;
   background: white;
+}
+
+section#user-rentals .card {
+  width: 298px;
+}
+
+section#user-rentals .card .sponsor-stamp {
+  display: inline-block;
+  padding: 2px 5px;
+  background-color: #ccac00;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+section#user-rentals .card .images img {
+  height: 150px;
+  border-radius: 3px;
 }
 

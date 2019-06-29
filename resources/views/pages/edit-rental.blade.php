@@ -11,12 +11,12 @@
             @method('PATCH')
             <div class="form-group" >
               {{-- <label for="title">Title</label> --}}
-              <input type="text" class="form-control {{$errors->has('title') ? "border-danger" : "" }}" name = "title" placeholder="{{$rental->title}}">
+              <input type="text" class="form-control {{$errors->has('title') ? "border-danger" : "" }}" name = "title" value="{{$rental->title}}">
               {!! $errors->first('title', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <div class="form-group" >
               {{-- <label for="description">Description</label> --}}
-              <input type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" placeholder="{{$rental->description}}">
+              <input type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" value="{{$rental->description}}">
               {!! $errors->first('description', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <span class="form-group">
@@ -46,7 +46,7 @@
               <div class="service-container d-flex justify-content-between">
                 @foreach ($services as $service)
                   <div class="d-flex align-items-center">
-                    <input type="checkbox" name="services[]" value="{{$service->id}}" > <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
+                    <input type="checkbox" name="services[]" value="{{$service->id}}" {{$rental->checkService($service->id)}}> <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
                   </div>
                 @endforeach
               </div>
@@ -56,9 +56,9 @@
               {{-- <input type="text" class="form-control {{$errors->has('address') ? "border-danger" : "" }}" name = "address" placeholder="Enter Address">
               {!! $errors->first('address', '<small class="form-text text-danger">:message</small>') !!} --}}
               <div id="search-panel"></div>
-              <input id="addr" type="hidden" name="address" value="">
-              <input id="lat" type="hidden" name="lat" value="">
-              <input id="lon" type="hidden" name="lon" value="">
+              <input id="addr" type="hidden" name="address" value="{{$rental->address}}">
+              <input id="lat" type="hidden" name="lat" value="{{$rental->lat}}">
+              <input id="lon" type="hidden" name="lon" value="{{$rental->lon}}">
               <div id="map"></div>
             </div>
             <div class="input-group mb-3">
@@ -76,4 +76,17 @@
         </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+
+    $(document).ready(
+
+      function(){
+
+        $('#search-panel').find('input').val("ciao")
+      }
+
+
+    );
+  </script>
 @stop
