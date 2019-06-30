@@ -59,7 +59,7 @@
               <input id="addr" type="hidden" name="address" value="{{$rental->address}}">
               <input id="lat" type="hidden" name="lat" value="{{$rental->lat}}">
               <input id="lon" type="hidden" name="lon" value="{{$rental->lon}}">
-              <div id="map"></div>
+              <div id="mapE"></div>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -81,11 +81,40 @@
 
     $(document).ready(
 
-      function(){
+      function () {
+        var latE = {{$rental->lat}};
+        var lonE = {{$rental->lon}};
 
-        $('#search-panel').find('input').val("ciao")
-      }
+        var mapE = tomtom.L.map('mapE', {
+          key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',
+          center: [latE,lonE],
+          zoom: 18
+        });
 
+        var searchBoxInstance = tomtom.searchBox({
+              collapsible: false,
+              searchOnDragEnd: 'never'
+        }).addTo(mapE);
+
+
+        var searchPanelE = $("#search-panel");
+
+        searchPanelE.append(searchBoxInstance.getContainer());
+
+        var initAddr = $("#addr").val();
+
+        searchBoxInstance.search(initAddr);
+
+        tomtom.fuzzySearch().query(initAddr).go(function (result) {
+
+         var markers = new L.TomTomMarkersLayer().addTo(mapE);
+         markers.setMarkersData([[latE,lonE]]);
+
+         markers.addMarkers();
+         map.fitBounds(markers.getBounds());
+      });
+
+    }
 
     );
   </script>
