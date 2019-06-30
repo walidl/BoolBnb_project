@@ -26,7 +26,7 @@
 
             <div class="card-body">
 
-              <a href="{{route('show.rental',$rental->id)}}" class="stretched-link">
+              <a href="{{route('show.rental',$rental->id)}}" class='title'>
                 <h5 class="card-title">{{$rental->title}}</h5>
               </a>
 

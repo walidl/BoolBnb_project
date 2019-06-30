@@ -30,7 +30,7 @@
             <!-- Left Side Of Navbar -->
             <div class="navbar__left">
               <div class="navbar_logo">
-                <img src="https://cdn.worldvectorlogo.com/logos/airbnb-1.svg" alt="" href="{{ url('/') }}">
+                <a href="/"><img src="https://cdn.worldvectorlogo.com/logos/airbnb-1.svg" alt="" href="/"></a>
               </div>
             </div>
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
@@ -39,7 +39,7 @@
             <div class="navbar__right">
 
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item nav-link dropdown">Host a home</li>
+                <li class="nav-item nav-link dropdown"> Host a home</li>
                 <li class="nav-item nav-link dropdown">Host an experience</li>
 
                   <!-- Authentication Links -->

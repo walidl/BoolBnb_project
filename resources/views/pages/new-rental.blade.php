@@ -42,10 +42,15 @@
             {{-- <label for="services[]">Services</label> --}}
             <option value="" disabled selected>Choose the provided services</option>
             {!! $errors->first('services', '<small class="form-text text-danger">:message</small>') !!}
-            <div class="service-container d-flex justify-content-between">
+            <div class="service-container d-flex">
               @foreach ($services as $service)
-                <div class="d-flex align-items-center">
-                  <input type="checkbox" name="services[]" value="{{$service->id}}" > <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
+                <div class="d-flex mr-2 mb-2 item">
+                  <div class="d-flex align-items-center justify-content-center logo">
+                    <i class="{{$service->icon}}"></i>
+                  </div>
+                  <div class="d-flex align-items-center check">
+                    <input type="checkbox" class="service d-none" name="services[]" value="{{$service->id}}" > <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
+                  </div>
                 </div>
               @endforeach
             </div>
@@ -76,4 +81,30 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      $('.item').click(
+        function(){
+
+          $(this).toggleClass("active");
+
+          var checkbox = $(this).find("input.service");
+
+          if($(this).hasClass("active")){
+
+            $(this).find("input.service").prop('checked', true);
+          }
+          else{
+            $(this).find("input.service").prop('checked', false);
+
+
+          }
+        }
+      );
+
+    }
+  );
+</script>
 @stop
