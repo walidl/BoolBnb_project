@@ -56,9 +56,61 @@
           }
         }
 
-        .service-form{
+        .service-container{
 
           margin-bottom:30px;
+          flex-wrap: wrap;
+
+
+          .item{
+
+            border: 1px solid #ccc;
+            background-color: white;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+
+            &:hover{
+
+              background-color: rgba(38, 157, 164,0.2);
+
+            }
+
+            .logo{
+              border-right: 1px solid #ccc;
+              width: 31px;
+              transition: background-color 0.3s ease;
+              transition: color 0.3s ease;
+
+
+            }
+            .check{
+
+              padding : 3px 5px;
+
+
+            }
+
+            &.active{
+
+              border-color: #269DA4;
+
+              .logo{
+
+                background-color: #269DA4;
+                color:white;
+
+              }
+
+              .check{
+
+                font-weight: 500;
+
+              }
+
+            }
+
+          }
+
         }
       }
     }

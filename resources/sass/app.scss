@@ -1,4 +1,4 @@
-#map{
+#map,#mapR,#mapE{
   width: 300px;
   height: 300px;
 }
@@ -33,5 +33,12 @@
 
 //NewRental
 @import 'newRental';
+
 //searchpage
 @import 'search-page';
+
+//rental page
+@import 'rental-page';
+
+// User Rentals Page
+@import 'user-rentals';

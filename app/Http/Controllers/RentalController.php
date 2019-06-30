@@ -9,22 +9,21 @@ use App\Service;
 
 class RentalController extends Controller
 {
-  public function showRentals(){
+  // public function showRentals(){
+  //
+  //   $sponsoredRentals = Rental::sponsored()->get();
+  //   $notSponsoredRentals = Rental::notSponsored()->get();
+  //   $rentals = $sponsoredRentals->merge($notSponsoredRentals);
+  //
+  //   return view('pages.show-rentals',compact('rentals'));
+  // }
 
-    $sponsoredRentals = Rental::sponsored()->get();
-    $notSponsoredRentals = Rental::notSponsored()->get();
-    $rentals = $sponsoredRentals->merge($notSponsoredRentals);
-
-    return view('pages.show-rentals',compact('rentals'));
-  }
-
-  public function sponsoredRentals(){
-
-    $rentals = Rental::sponsored()->get();
-
-    return view('pages.show-rentals',compact('rentals'));
+  public function showRental($id){
 
 
+    $rental = Rental::findOrFail($id);
+
+    return view('pages.rental-page',compact('rental'));
   }
 
   public function createRental(){
@@ -72,7 +71,7 @@ class RentalController extends Controller
     $services = Service::find($servicesIDs);
     $rental->services()->sync($services);
 
-    return redirect(route('rental.show-all'));
+    return redirect(route('user.rentals'));
 
 
   }
@@ -80,12 +79,13 @@ class RentalController extends Controller
   public function editRental($id){
     $rental = Rental::findOrFail($id);
 
-    // if(auth()->user()->id != $rental->user->id){//Modifica permessa solo al proprietario dell'appartamento
-      // return redirect('rentals/all');
-    // }else {
+    if(auth()->user()->id != $rental->user->id){
+      //Modifica permessa solo al proprietario dell'appartamento
+      return redirect('/user/rentals');
+    }else {
       $services = Service::all();
       return view('pages.edit-rental',compact('rental','services'));
-    // }
+    }
   }
 
   public function updateRental(RentalRequest $request,$id){
@@ -94,7 +94,7 @@ class RentalController extends Controller
     $rental->update($validateData);
     $rental->services()->sync($request->services);
 
-    return redirect(route('rental.show-all'));
+    return redirect(route('user.rentals'));
   }
 
 }

@@ -18,7 +18,7 @@ class PaymentsController extends Controller
 
     if($rental->isSponsored() || auth()->user()->id != $rental->user->id){
 
-      return redirect(route('rental.show-all'));
+      return redirect(route('user.rentals'));
     }
 
 
@@ -60,11 +60,11 @@ class PaymentsController extends Controller
           'submitForSettlement' => true
           ]
       ]);
-      
+
       if ($result->success || !is_null($result->transaction)) {
           $transaction = $result->transaction;
           $this->addSponsor($rentalId,$sponsor);
-          return redirect(route('rental.show-all'));
+          return redirect(route('user.rentals'));
       } else {
           $errorString = "";
           foreach($result->errors->deepAll() as $error) {
