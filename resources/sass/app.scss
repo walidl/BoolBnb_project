@@ -3,6 +3,10 @@
   height: 300px;
 }
 
+.error{
+  color: red;
+}
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -31,5 +35,3 @@
 @import 'newRental';
 //searchpage
 @import 'search-page';
-
-

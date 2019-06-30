@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('tomtom-sdk/tomtom.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/clientside-validation.js') }}" charset="utf-8"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
