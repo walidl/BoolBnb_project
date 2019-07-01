@@ -153,7 +153,6 @@
     var latR = {{$rental->lat}};
     var lonR = {{$rental->lon}};
     var address = $("#address").text();
-    console.log(address);
 
     var mapR = tomtom.L.map('mapR', {
       key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',
@@ -172,7 +171,6 @@
      markers.addMarkers();
      map.fitBounds(markers.getBounds());
   });
-
 
 }
 

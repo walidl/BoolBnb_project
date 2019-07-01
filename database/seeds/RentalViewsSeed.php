@@ -11,7 +11,7 @@ class RentalViewsSeed extends Seeder
      */
     public function run()
     {
-      factory(App\RentalViews::class, 5)->make()
+      factory(App\RentalViews::class, 100)->make()
         ->each(function($rentalview){
 
           $rental = App\Rental::inRandomOrder()->first();

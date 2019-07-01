@@ -19,7 +19,7 @@ $(document).ready(function () {
         messages : {
           title : {
             required : 'Please enter a title.',
-            minlength : 'Title must have al least two characters.'
+            minlength : 'Title must have at least two characters.'
           },
           description : {
             required : 'Please enter a description.',

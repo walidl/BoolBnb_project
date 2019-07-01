@@ -30,8 +30,6 @@ class RentalController extends Controller
     $rentalview->ip = \Request::getClientIp();
     $rentalview->save();
 
-    // dd($rental->views()->count());
-
     return view('pages.rental-page',compact('rental'));
   }
 
@@ -104,6 +102,11 @@ class RentalController extends Controller
     $rental->services()->sync($request->services);
 
     return redirect(route('user.rentals'));
+  }
+
+  public function showStat($id){
+    $rental = Rental::findOrFail($id);
+    return view('pages.rental-statistics',compact('rental'));
   }
 
 }

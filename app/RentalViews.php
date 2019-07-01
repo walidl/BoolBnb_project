@@ -8,7 +8,8 @@ class RentalViews extends Model
 {
    protected $fillable = [
      'rental_id',
-     'ip'
+     'ip',
+     'created_at'
    ];
 
    public function rental()
