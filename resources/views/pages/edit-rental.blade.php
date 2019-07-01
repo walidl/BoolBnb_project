@@ -11,12 +11,12 @@
             @method('PATCH')
             <div class="form-group" >
               {{-- <label for="title">Title</label> --}}
-              <input type="text" class="form-control {{$errors->has('title') ? "border-danger" : "" }}" name = "title" placeholder="{{$rental->title}}">
+              <input type="text" class="form-control {{$errors->has('title') ? "border-danger" : "" }}" name = "title" value="{{$rental->title}}">
               {!! $errors->first('title', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <div class="form-group" >
               {{-- <label for="description">Description</label> --}}
-              <input type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" placeholder="{{$rental->description}}">
+              <input type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" value="{{$rental->description}}">
               {!! $errors->first('description', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <span class="form-group">
@@ -43,10 +43,17 @@
             {{-- <label for="services[]">Services</label> --}}
               <option value="" disabled selected>Choose the provided services</option>
               {!! $errors->first('services', '<small class="form-text text-danger">:message</small>') !!}
-              <div class="service-container d-flex justify-content-between">
+              <div class="service-container d-flex">
                 @foreach ($services as $service)
-                  <div class="d-flex align-items-center">
-                    <input type="checkbox" name="services[]" value="{{$service->id}}" > <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
+                  <div class="d-flex mr-2 mb-2 item {{$rental->isService($service->id) ? "active" : ""}}">
+                    <div class="d-flex align-items-center justify-content-center logo">
+                      <i class="{{$service->icon}}"></i>
+                    </div>
+                    <div class="d-flex align-items-center check">
+                      <input type="checkbox" class="service d-none" name="services[]" value="{{$service->id}}" {{$rental->isService($service->id) ? "checked" : ""}}> <label class="m-0 ml-1">{{ucfirst($service->name)}}  </label>
+                    </div>
+
+
                   </div>
                 @endforeach
               </div>
@@ -56,10 +63,10 @@
               {{-- <input type="text" class="form-control {{$errors->has('address') ? "border-danger" : "" }}" name = "address" placeholder="Enter Address">
               {!! $errors->first('address', '<small class="form-text text-danger">:message</small>') !!} --}}
               <div id="search-panel"></div>
-              <input id="addr" type="hidden" name="address" value="">
-              <input id="lat" type="hidden" name="lat" value="">
-              <input id="lon" type="hidden" name="lon" value="">
-              <div id="map"></div>
+              <input id="addr" type="hidden" name="address" value="{{$rental->address}}">
+              <input id="lat" type="hidden" name="lat" value="{{$rental->lat}}">
+              <input id="lon" type="hidden" name="lon" value="{{$rental->lon}}">
+              <div id="mapE"></div>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -76,4 +83,73 @@
         </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+
+    $(document).ready(
+
+      function () {
+        var latE = {{$rental->lat}};
+        var lonE = {{$rental->lon}};
+
+        var mapE = tomtom.L.map('mapE', {
+          key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',
+          center: [latE,lonE],
+          zoom: 18
+        });
+
+        var searchBoxInstance = tomtom.searchBox({
+              collapsible: false,
+              searchOnDragEnd: 'never'
+        }).addTo(mapE);
+
+
+        var searchPanelE = $("#search-panel");
+
+        searchPanelE.append(searchBoxInstance.getContainer());
+
+        var initAddr = $("#addr").val();
+
+        searchBoxInstance.search(initAddr);
+
+        tomtom.fuzzySearch().query(initAddr).go(function (result) {
+
+         var markers = new L.TomTomMarkersLayer().addTo(mapE);
+         markers.setMarkersData([[latE,lonE]]);
+
+         markers.addMarkers();
+         map.fitBounds(markers.getBounds());
+      });
+
+    }
+
+    );
+  </script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      $('.item').click(
+        function(){
+
+          $(this).toggleClass("active");
+
+          var checkbox = $(this).find("input.service");
+
+          if($(this).hasClass("active")){
+
+            $(this).find("input.service").prop('checked', true);
+          }
+          else{
+            $(this).find("input.service").prop('checked', false);
+
+
+          }
+        }
+      );
+
+    }
+  );
+</script>
 @stop

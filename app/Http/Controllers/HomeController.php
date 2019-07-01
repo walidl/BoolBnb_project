@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Rental;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +24,19 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function showUserRentals(){
+
+
+      if(auth()->user()->renting){
+
+        $rentals = Rental::where('user_id',auth()->user()->id)->orderBy('updated_at','DESC')->get();
+
+        return view ('pages.show-rentals',compact('rentals'));
+      }
+      else{
+        redirect('/');
+      }
     }
 }
