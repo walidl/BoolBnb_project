@@ -36,10 +36,25 @@
     display: none;
   }
   ul{
+
     display: flex;
     justify-content: flex-end;
     margin-bottom: 0;
     list-style: none;
+
+    a{
+      color:inherit;
+      font-weight: 600;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+
+      &:hover{
+
+        text-decoration: none;
+        opacity: 1;
+
+      }
+    }
   }
 
   .nav-item{
@@ -84,6 +99,10 @@
         &:hover{
 
           background-color: #F8F9FA;
+
+          a{
+            opacity: 1;
+          }
         }
       }
     }

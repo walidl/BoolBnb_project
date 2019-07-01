@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="search-page">
+<section id="search-page" class="py-3">
 
   <div class="search-area py-4">
     <div class="container">
-    <form>
+      <form>
       <div class="form-group d-flex align-items-center px-3 flex-wrap" >
         <div class="">
           <small>Place</small>
@@ -34,20 +34,22 @@
         </div>
 
       </div>
+      <div class="container">
 
-      <div class="mt-2 d-flex">
-        @foreach ($services as $service)
-          <div class="service m-2">
-            <label class="switch">
+        <div class=" row mt-2 d-flex">
+          @foreach ($services as $service)
+            <div class="service m-2">
+              <label class="switch">
 
-              <input type="checkbox" class="services default" value="{{$service->id}}">
-              <span class="slider round"></span>
-            </label>
-            <label class="check-lab m-0  mx-1"><i class=" logo {{$service->icon}}"></i>  </label>
+                <input type="checkbox" class="services default" value="{{$service->id}}">
+                <span class="slider round"></span>
+              </label>
+              <label class="check-lab m-0  mx-1"><i class=" logo {{$service->icon}}"></i>  </label>
 
-          </div>
-        @endforeach
+            </div>
+          @endforeach
 
+        </div>
       </div>
     </form>
 
@@ -58,14 +60,6 @@
   </div>
   <div class="container">
     <h3><span id="count"></span> Results</h3>
-  </div>
-  <div id="sponsored" class=" container d-none">
-
-
-    <div class="row content">
-
-    </div>
-
   </div>
 
   <div id="results" class=" container d-none">
@@ -99,26 +93,15 @@
 
           $("#count").html(dataIn.count);
 
-          if (dataIn.sponsored){
+          if (dataIn.count > 0 ){
+            $('#results').removeClass("d-none").find(".content").html(dataIn.results);
 
-            $('#sponsored').removeClass("d-none").find(".content").html(dataIn.sponsored);
-
-          }
-          else{
-            $('#sponsored').addClass("d-none");
-
-          }
-          if (dataIn.not_sponsored){
-
-            $('#results').removeClass("d-none").find(".content").html(dataIn.not_sponsored);
 
           }
           else{
             $('#results').addClass("d-none");
-
           }
-          //   if
-          //   $('.row').html(dataIn.card_data);
+
         },
         error : function(request,status,error){
 

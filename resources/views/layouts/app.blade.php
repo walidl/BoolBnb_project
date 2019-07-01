@@ -38,8 +38,8 @@
 
               <i class="fas fa-bars"></i>
               <ul class="">
-                <li class="nav-item nav-link"> Host a home</li>
-                <li class="nav-item nav-link">Host an experience</li>
+                <li class="nav-item nav-link"> <a href="{{route('rental.create')}}">Host a home</a> </li>
+                <li class="nav-item nav-link"><a href="#">Host an experience</a></li>
 
                   <!-- Authentication Links -->
                 @guest
