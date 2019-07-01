@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RentalRequest;
 use App\Rental;
 use App\Service;
+use App\RentalViews;
 
 class RentalController extends Controller
 {
@@ -22,6 +23,14 @@ class RentalController extends Controller
 
 
     $rental = Rental::findOrFail($id);
+
+    //Salvataggio visita
+    $rentalview = new RentalViews();
+    $rentalview->rental_id = $rental->id;
+    $rentalview->ip = \Request::getClientIp();
+    $rentalview->save();
+
+    // dd($rental->views()->count());
 
     return view('pages.rental-page',compact('rental'));
   }

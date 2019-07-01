@@ -63,6 +63,14 @@ class AddForeignKeys extends Migration
               ->onDelete('cascade');
 
      });
+
+      Schema::table('rental_views', function (Blueprint $table) {
+
+        $table->foreign('rental_id','rental_vw')
+              ->references('id')
+              ->on('rentals')
+              ->onDelete('cascade');
+     });
     }
 
     /**
