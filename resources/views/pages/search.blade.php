@@ -6,12 +6,12 @@
   <div class="search-area py-4">
     <div class="container">
     <form>
-      <div class="form-group d-flex align-items-center px-3" >
+      <div class="form-group d-flex align-items-center px-3 flex-wrap" >
         <div class="">
           <small>Place</small>
           <div id="search-panel" class="mr-2"></div>
         </div>
-        <div class=" input-container">
+        <div class=" mr-2 input-container">
           <small>Distance (Km)</small>
           <input type="number"  min="20" class="form-control" id="radius" value="20">
         </div>
@@ -24,17 +24,16 @@
         <div id="map" class="d-none" ></div>
 
 
-        <div class="mx-2 input-container">
+        <div class="mr-2 input-container">
           <small>Rooms</small>
           <input type="number"  min="1" max="10" class="sensitive form-control" id="search-rooms">
         </div>
-        <div class="mx-1 input-container">
+        <div class="mr-1 input-container">
           <small>Beds</small>
           <input type="number"  min="1" max="10" class="sensitive form-control" id="search-beds">
         </div>
 
       </div>
-      {{-- <input type="text" class=" sensitive form-control " id="search-title" placeholder="Search"> --}}
 
       <div class="mt-2 d-flex">
         @foreach ($services as $service)

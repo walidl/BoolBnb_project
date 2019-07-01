@@ -32,6 +32,14 @@ class MessagesController extends Controller
     return redirect(route('printMess', auth()->user()->id));
   }
 
+  public function massDestroyMess($id){
+
+    $message = Message::findOrFail($id);
+    $message->delete();
+
+    return redirect(route('printMess', auth()->user()->id));
+  }
+
   public function storeMessage(Request $request){
     $message = new Message();
 

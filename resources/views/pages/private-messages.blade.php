@@ -24,11 +24,11 @@
         <tbody>
           @foreach ($messages as $message)
           <tr class="message">
-            <th><input type="checkbox" name="" value=""></th>
+            <th><input type="checkbox" name="messages[]" value=""></th>
             <th scope="row"><i class="far fa-star"></th>
             <td class="sent-date">{{$message-> sent_date}}</td>
             {{-- <td>{{$message-> title}}</td> --}}
-            <td class="contMess">{{$message-> content}}</td>
+            <td class="contMess"><p class="m-0">{{$message-> content}}</p></td>
             <td>{{$message-> sender}}</td>
             <td>
               <form action="{{ route('destroyMess', $message->id)}}" method="post">

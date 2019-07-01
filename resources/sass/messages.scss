@@ -26,8 +26,8 @@
 
         &:hover{
 
-          background: darkgrey;
-          font-weight: bold;
+          background: #E8F2FE;
+          font-weight: 600;
           cursor:pointer;
         }
 
@@ -42,6 +42,18 @@
 
             background-color: Transparent;
             border:none;
+          }
+
+          &.contMess{
+            max-width: 544px;
+
+            p{
+
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+
           }
         }
       }

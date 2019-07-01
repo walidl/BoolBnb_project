@@ -4,13 +4,17 @@ section#search-page{
   .search-area{
 
 
+    #search-panel{
 
+      z-index: 0!important;
+    }
     .leaflet-control-search-input-container{
 
       box-shadow: none;
       height: 37.03px;
       border: 1px solid #ced4da;
       font-size: 0.9rem;
+      z-index: 0!important;
     }
 
     .leaflet-control-search-results-container{
@@ -21,6 +25,7 @@ section#search-page{
 
     small{
       font-weight: bold;
+      white-space: nowrap;
 
     }
     .input-container{

@@ -18,6 +18,6 @@ $factory->define(Rental::class, function (Faker $faker) {
     'address' =>$faker->address ,
     'lat' =>$faker->latitude,
     'lon' =>$faker->longitude,
-    'image' => (rand(0,1) == 0 ? 'image_prova.jpg' : 'image_prova2.jpg')
+    'image' =>  'image_prova' . rand(1,4) . '.jpg'
   ];
 });
