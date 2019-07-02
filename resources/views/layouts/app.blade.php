@@ -34,14 +34,11 @@
                 <a href="/"><img src="https://cdn.worldvectorlogo.com/logos/airbnb-1.svg" alt="" href="/"></a>
               </div>
             </div>
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-
             <!-- Right Side Of Navbar -->
-            <div class="navbar__right">
+            <div class="navbar__right ">
 
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item nav-link dropdown"> Host a home</li>
-                <li class="nav-item nav-link dropdown">Host an experience</li>
+              <i class="fas fa-bars"></i>
+              <ul class="">
 
                   <!-- Authentication Links -->
                 @guest
@@ -54,7 +51,9 @@
                     </li>
                   @endif
                   @else
-                    <li class="nav-item dropdown">
+                    <li class="nav-item nav-link"> <a href="{{route('rental.create')}}">Host a home</a> </li>
+                    <li class="nav-item nav-link"><a href="#">Host an experience</a></li>
+                    <li class="user-dropdown nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
@@ -77,7 +76,9 @@
                   @endguest
               </ul>
             </div>
-          </div>
+            {{-- <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent"> --}}
+
+          {{-- </div> --}}
         </nav>
         <main class="p-0">
             @yield('content')
@@ -133,5 +134,40 @@
           </div>
         </footer>
       </div>
+
+      <script type="text/javascript">
+
+      $(document).ready(function(){
+
+        $(window).resize(function(){
+          if ($(window).width() >= 768){
+
+            $("ul").css("display", "");
+
+          }
+        })
+
+        $(document).click(function(event){
+          event.stopPropagation();
+
+          if($(window).width() < 768){
+
+            if($(event.target).is(".fa-bars")){
+              $("ul").show();
+
+            }else{
+
+              $("ul").hide();
+            }
+          }
+
+        })
+
+
+
+
+      })
+
+      </script>
   </body>
 </html>

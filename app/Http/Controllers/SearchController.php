@@ -49,10 +49,7 @@ class SearchController extends Controller
         $q->distance($lat,$lon,$radius);
       }
 
-      // if($title){
-      //   $q->where('title','LIKE', '%'. $title.'%');
-      //
-      // }
+
       if($rooms){
         $q->where('rooms','>=',  $rooms);
 
@@ -63,26 +60,24 @@ class SearchController extends Controller
 
       }
 
-      // $rentals = $q->get();
       $q2 = clone $q;
       $notSponsoredRentals = $q->notSponsored()->get();
       $sponsoredRentals = $q2->sponsored()->get();
       $result = array();
       $found = 0;
-      //
+      $html = "";
       if($sponsoredRentals->count() > 0){
         $found += $sponsoredRentals->count();
-        $html = view('components.sponsored_rental-component', ['rentals' => $sponsoredRentals])->render();
-        $result['sponsored'] = $html;
+        $html .= view('components.sponsored_rental-component', ['rentals' => $sponsoredRentals])->render();
       }
       if($notSponsoredRentals->count() > 0){
 
         $found += $notSponsoredRentals->count();
-        $html = view('components.rental-component', ['rentals' => $notSponsoredRentals] )->render();
-        $result['not_sponsored'] = $html;
+        $html .= view('components.rental-component', ['rentals' => $notSponsoredRentals] )->render();
       }
-
       $result["count"] = $found;
+      $result['results'] = $html;
+
 
 
 

@@ -18,9 +18,10 @@ Route::patch('/rental/edit/{id}', 'RentalController@updateRental')->name('update
 Route::get('/rental/{id}', 'RentalController@showRental')->name('show.rental');
 
 
-Route::get('/inbox/{id}', 'MessagesController@printMessagesById')->name('printMess')->middleware('auth');
+Route::get('/inbox', 'MessagesController@getInbox')->name('printMess')->middleware('auth');
 Route::delete('/inbox/{id}', 'MessagesController@destroyMess')->name('destroyMess')->middleware('auth');
 Route::post('/sendMessage', 'MessagesController@storeMessage')->name('message.store');
+Route::get('/inbox/{id}', 'MessagesController@getMessageById')->name('message.get')->middleware('auth');
 
 Route::get('/payment/sponsor/{id}', 'PaymentsController@selectSponsor')->name('payment.sponsor')->middleware('auth');;
 

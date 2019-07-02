@@ -1,6 +1,21 @@
-#map,#mapR,#mapE{
-  width: 300px;
-  height: 300px;
+#map,#mapE{
+  width: 300px!important;
+  height: 300px!important;
+}
+
+#mapR{
+
+  width: 350px!important;
+  height: 350px!important;
+}
+
+@media (max-width: 361px){
+
+  #map{
+    width: 240px!important;
+    height: 240px!important;
+
+  }
 }
 
 .error{
@@ -42,3 +57,6 @@
 
 // User Rentals Page
 @import 'user-rentals';
+
+// Sponsor Payment
+@import 'payment-sponsor';
