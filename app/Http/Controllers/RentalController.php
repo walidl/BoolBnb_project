@@ -7,6 +7,7 @@ use App\Http\Requests\RentalRequest;
 use App\Rental;
 use App\Service;
 use App\RentalViews;
+use App\User;
 
 class RentalController extends Controller
 {
@@ -22,9 +23,10 @@ class RentalController extends Controller
     $rentalview->ip = \Request::getClientIp();
     $rentalview->save();
 
-    // dd($rental->views()->count());
+    //Users UPR e UPRA
+    $users = User::all();
 
-    return view('pages.rental-page',compact('rental'));
+    return view('pages.rental-page',compact('rental','users'));
   }
 
   public function createRental(){
@@ -96,6 +98,11 @@ class RentalController extends Controller
     $rental->services()->sync($request->services);
 
     return redirect(route('user.rentals'));
+  }
+
+  public function showStat($id){
+    $rental = Rental::findOrFail($id);
+    return view('pages.rental-statistics',compact('rental'));
   }
 
 }

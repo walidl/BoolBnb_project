@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\RentalViews::class, function (Faker $faker) {
     return [
-        'ip' => $faker->ipv4
+        'ip' => $faker->ipv4,
+        'created_at' => $faker->dateTimeThisYear
     ];
 });

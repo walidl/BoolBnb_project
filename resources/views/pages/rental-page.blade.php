@@ -79,7 +79,7 @@
   <div class=" message py-2 px-1"  style="display: none">
     <form class="" action="index.html" method="post">
       <div class="form-group">
-        <input id="sender" type="email" class="form-control " name = "email" placeholder="Enter your E-mail">
+        <input id="sender" type="email" class="form-control typeahead" name = "email" placeholder="Enter your E-mail">
       </div>
       <div class="form-group">
 
@@ -153,7 +153,6 @@
     var latR = {{$rental->lat}};
     var lonR = {{$rental->lon}};
     var address = $("#address").text();
-    console.log(address);
 
     var mapR = tomtom.L.map('mapR', {
       key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',
@@ -173,6 +172,17 @@
      map.fitBounds(markers.getBounds());
   });
 
+
+  //Autocomplete email
+  var usersMail = [];
+
+  @foreach ($users as $user)
+   usersMail.push('{{$user->email}}');
+  @endforeach
+
+  $('#sender').typeahead({
+    source : usersMail
+  });
 
 }
 
