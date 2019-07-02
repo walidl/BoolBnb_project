@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RentalRequest;
+use App\Http\Requests\editrentalRequest;
+
 use App\Rental;
 use App\Service;
 use App\RentalViews;
@@ -93,7 +95,7 @@ class RentalController extends Controller
     }
   }
 
-  public function updateRental(RentalRequest $request,$id){
+  public function updateRental(editrentalRequest $request,$id){
 
     $validateData = $request->validated();
     // dd($validateData);
