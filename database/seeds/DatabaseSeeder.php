@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
 
           UserSeed::class,
           RentalSeed::class,
-          MessageSeed::class
+          MessageSeed::class,
+          RentalViewsSeed::class
         ]);
     }
 }

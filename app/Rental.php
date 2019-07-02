@@ -29,6 +29,10 @@ class Rental extends Model
     return $this->hasMany(Message::class);
   }
 
+  public function views(){
+    return $this->hasMany(RentalViews::class);
+  }
+
   public function isService($serviceId){
 
 

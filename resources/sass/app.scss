@@ -18,6 +18,25 @@
   }
 }
 
+.error{
+  color: red;
+}
+
+.graph-container{
+  >h2{
+    text-align: center;
+    padding: 10px;
+  }
+
+  >#myChart{
+    width: 80% !important;
+    height: 100% !important;
+
+    margin: auto;
+    padding: 10px;
+  }
+}
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 

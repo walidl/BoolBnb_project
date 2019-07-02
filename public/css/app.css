@@ -22,6 +22,22 @@
   }
 }
 
+.error {
+  color: red;
+}
+
+.graph-container > h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+.graph-container > #myChart {
+  width: 80% !important;
+  height: 100% !important;
+  margin: auto;
+  padding: 10px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

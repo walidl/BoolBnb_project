@@ -32,3 +32,6 @@ Route::post('/payment/process/{id}', 'PaymentsController@process')->name('paymen
 // Search
 Route::get('/search', 'SearchController@searchIndex')->name('search.index');
 Route::get('/search/action', 'SearchController@action')->name('search.action');
+
+//Statistics
+Route::get('/rental/statistics/{id}','RentalController@showStat')->name('rental.statistics');
