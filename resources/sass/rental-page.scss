@@ -59,11 +59,12 @@ section#rental-page
 
   .page__content{
     padding-top: 50px;
-    width: 50%;
     margin: auto;
     // background-color: $red;
 
     .page__content__left{
+
+      width: 60%;
       margin-bottom: 50px;
 
       .text__title{
@@ -75,11 +76,10 @@ section#rental-page
           padding: 15px;
         }
       }
-      .text__description{
 
-      }
 
       .services{
+
         width: 80%;
         display: flex;
         flex-wrap: wrap;
@@ -91,33 +91,21 @@ section#rental-page
           border: solid #D8D8D8;
           border-width: thin;
           position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+
           .content__services__item{
-            font-size: 80px;
+            font-size: 50px;
 
           }
-          span{
-            position: absolute;
-            bottom: 1%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-          }
+
         }
       }
     }
     .page__content__right{
-      // width: 40%;
-      // height: 50px;
-      // float: left;
+
 
       #mapR{
-
-
         z-index: 0;
       }
-
 
     }
   }
@@ -191,7 +179,20 @@ section#rental-page
 
   }
 }
+@media  (max-width: 991px){
+  section#rental-page{
 
+    .page__content{
+
+
+      .page__content__left{
+        width: 100%;
+        
+      }
+
+    }
+  }
+}
 @media  (max-width: 768px){
   section#rental-page{
     .image{
@@ -263,8 +264,9 @@ section#rental-page
             display: flex;
             justify-content: center;
             align-items: center;
+
             .content__services__item{
-              font-size: 50px;
+              font-size: 30px;
 
 
             }
@@ -356,7 +358,7 @@ section#rental-page
             justify-content: center;
             align-items: center;
             .content__services__item{
-              font-size: 40px;
+              font-size: 30px;
 
 
             }
