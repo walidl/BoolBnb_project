@@ -79,7 +79,7 @@
   <div class=" message py-2 px-1"  style="display: none">
     <form class="" action="index.html" method="post">
       <div class="form-group">
-        <input id="sender" type="email" class="form-control " name = "email" placeholder="Enter your E-mail">
+        <input id="sender" type="email" class="form-control typeahead" name = "email" placeholder="Enter your E-mail">
       </div>
       <div class="form-group">
 
@@ -170,6 +170,18 @@
 
      markers.addMarkers();
      map.fitBounds(markers.getBounds());
+  });
+
+
+  //Autocomplete email
+  var usersMail = [];
+
+  @foreach ($users as $user)
+   usersMail.push('{{$user->email}}');
+  @endforeach
+
+  $('#sender').typeahead({
+    source : usersMail
   });
 
 }

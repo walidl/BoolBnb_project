@@ -12,6 +12,9 @@ const app = new Vue({
 });
 var $ = require('jquery');
 
+//Plugin per autocomplete delle mail
+var typeahead = require('bootstrap-3-typeahead');
+
 //Inizializzazione mappa
 var map = tomtom.L.map('map', {
   key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',

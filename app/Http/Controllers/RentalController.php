@@ -7,6 +7,7 @@ use App\Http\Requests\RentalRequest;
 use App\Rental;
 use App\Service;
 use App\RentalViews;
+use App\User;
 
 class RentalController extends Controller
 {
@@ -30,7 +31,10 @@ class RentalController extends Controller
     $rentalview->ip = \Request::getClientIp();
     $rentalview->save();
 
-    return view('pages.rental-page',compact('rental'));
+    //Users UPR e UPRA
+    $users = User::all();
+
+    return view('pages.rental-page',compact('rental','users'));
   }
 
   public function createRental(){
