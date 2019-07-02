@@ -49787,7 +49787,8 @@ var app = new Vue({
   el: '#app'
 });
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); //Plugin per autocomplete delle mail
+
 
 var typeahead = __webpack_require__(/*! bootstrap-3-typeahead */ "./node_modules/bootstrap-3-typeahead/bootstrap3-typeahead.js"); //Inizializzazione mappa
 
