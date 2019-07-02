@@ -15,8 +15,10 @@
   height: 350px !important;
 }
 
-@media (max-width: 361px) {
-  #map {
+@media all and (max-width: 363px) {
+  #map,
+  #mapE,
+  #mapR {
     width: 240px !important;
     height: 240px !important;
   }
@@ -10684,6 +10686,25 @@ a.text-dark:focus {
   }
 }
 
+nav a.header-link {
+  color: inherit;
+  font-weight: 600;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+nav a.header-link:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+nav a.header-link.search-link {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  margin-left: 30px;
+}
+
 .navbar__left {
   height: 100%;
   width: 50%;
@@ -10718,18 +10739,6 @@ a.text-dark:focus {
   justify-content: flex-end;
   margin-bottom: 0;
   list-style: none;
-}
-
-.navbar__right ul a {
-  color: inherit;
-  font-weight: 600;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.navbar__right ul a:hover {
-  text-decoration: none;
-  opacity: 1;
 }
 
 .navbar__right .nav-item {
@@ -11628,11 +11637,11 @@ section#rental-page .image .img__back .small__img:hover {
 
 section#rental-page .page__content {
   padding-top: 50px;
-  width: 50%;
   margin: auto;
 }
 
 section#rental-page .page__content .page__content__left {
+  width: 60%;
   margin-bottom: 50px;
 }
 
@@ -11657,20 +11666,10 @@ section#rental-page .page__content .page__content__left .services .services__ite
   border: solid #D8D8D8;
   border-width: thin;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 section#rental-page .page__content .page__content__left .services .services__item .content__services__item {
-  font-size: 80px;
-}
-
-section#rental-page .page__content .page__content__left .services .services__item span {
-  position: absolute;
-  bottom: 1%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 50px;
 }
 
 section#rental-page .page__content .page__content__right #mapR {
@@ -11727,6 +11726,12 @@ section#rental-page .page__content .page__content__right #mapR {
     width: 100%;
     height: 30px;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  section#rental-page .page__content .page__content__left {
+    width: 100%;
   }
 }
 
@@ -11792,7 +11797,7 @@ section#rental-page .page__content .page__content__right #mapR {
   }
 
   section#rental-page .page__content .page__content__left .services .services__item .content__services__item {
-    font-size: 50px;
+    font-size: 30px;
   }
 
   section#rental-page .page__content .page__content__left .services .services__item span {
@@ -11865,7 +11870,7 @@ section#rental-page .page__content .page__content__right #mapR {
   }
 
   section#rental-page .page__content .page__content__left .services .services__item .content__services__item {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   section#rental-page .page__content .page__content__left .services .services__item span {

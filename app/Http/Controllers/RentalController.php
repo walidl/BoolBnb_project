@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RentalRequest;
+use App\Http\Requests\editrentalRequest;
+
 use App\Rental;
 use App\Service;
 use App\RentalViews;
@@ -74,6 +76,8 @@ class RentalController extends Controller
     $services = Service::find($servicesIDs);
     $rental->services()->sync($services);
 
+    auth()->user()->update(["renting" => true]);
+
     return redirect(route('user.rentals'));
 
 
@@ -91,11 +95,41 @@ class RentalController extends Controller
     }
   }
 
-  public function updateRental(RentalRequest $request,$id){
+  public function updateRental(editrentalRequest $request,$id){
+
     $validateData = $request->validated();
+    // dd($validateData);
+
     $rental = Rental::findOrFail($id);
-    $rental->update($validateData);
     $rental->services()->sync($request->services);
+    $rental->update([
+
+      'title' => $validateData['title'],
+      'description' => $validateData['description'],
+      'rooms' => $validateData['rooms'],
+      'beds' => $validateData['beds'],
+      'bathrooms' => $validateData['bathrooms'],
+      'square_meters' => $validateData['square_meters'],
+      'address' => $validateData['address'],
+      'lat' => $validateData['lat'],
+      'lon' => $validateData['lon'],
+    ]);
+
+    if($request->hasFile('image')){
+
+      //Unlink elimina l'immagine precedete
+      // unlink(storage_path('app/public/images/'.$rental->image));
+      $fileNameExt = $request->file('image')->getClientOriginalName();
+
+      $fileName = pathinfo($fileNameExt,  PATHINFO_FILENAME);
+      $fileExtension = $request->file('image')->getClientOriginalExtension();
+      $fileNameToStore = $fileName.'_'.time().'.'.$fileExtension;
+
+      $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
+      $rental->image = $fileNameToStore;
+      $rental->save();
+    }
+
 
     return redirect(route('user.rentals'));
   }

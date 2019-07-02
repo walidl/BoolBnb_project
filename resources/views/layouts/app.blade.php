@@ -8,7 +8,7 @@
 
     {{-- Title --}}
     <title>{{ config('app.name', 'BoolBnb') }}</title>
-
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <!-- Scripts -->
     <script src="{{ asset('tomtom-sdk/tomtom.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -32,6 +32,7 @@
             <div class="navbar__left">
               <div class="navbar_logo">
                 <a href="/"><img src="https://cdn.worldvectorlogo.com/logos/airbnb-1.svg" alt="" href="/"></a>
+                <a href="{{route('search.index')}}" class="header-link search-link" >Search <i class="fas fa-search"></i></a>
               </div>
             </div>
             <!-- Right Side Of Navbar -->
@@ -40,6 +41,8 @@
               <i class="fas fa-bars"></i>
               <ul class="">
 
+                <li class="nav-item nav-link"> <a class="header-link" href="{{route('rental.create')}}">Host a home</a> </li>
+                <li class="nav-item nav-link"><a class="header-link" href="#">Host an experience</a></li>
                   <!-- Authentication Links -->
                 @guest
                   <li class="nav-item">
@@ -51,19 +54,17 @@
                     </li>
                   @endif
                   @else
-                    <li class="nav-item nav-link"> <a href="{{route('rental.create')}}">Host a home</a> </li>
-                    <li class="nav-item nav-link"><a href="#">Host an experience</a></li>
                     <li class="user-dropdown nav-item dropdown">
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle header-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         @if (auth()->user()->renting)
 
-                          <a href="{{route('user.rentals')}}" class="dropdown-item">My Rentals</a>
-                          <a href="{{route('printMess',auth()->user()->id)}}" class="dropdown-item">My messages</a>
+                          <a href="{{route('user.rentals')}}" class="dropdown-item header-link">My Rentals</a>
+                          <a href="{{route('printMess',auth()->user()->id)}}" class="dropdown-item header-link">My messages</a>
                         @endif
-                          <a class="dropdown-item" href="{{ route('logout') }}"
+                          <a class="dropdown-item header-link" href="{{ route('logout') }}"
                              onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
                               {{ __('Logout') }}
@@ -130,7 +131,7 @@
             <i class="fab fa-airbnb"></i>
             <i class="far fa-copyright"></i>
             <h6 class="copyrights">BoolBnb. All rights reserved.</h6>
-            <h6>Powered with <i class="fas fa-heart"></i> by Walid, Emanuele, Riccardo, Sara.</h6>
+            <h6>Powered with <i class="fas fa-heart"></i> By Walid, Emanuele,Sara e Riccardo.</h6>
           </div>
         </footer>
       </div>
