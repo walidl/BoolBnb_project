@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-8 ml-col-2 writetoRental">
           <h1>Host a new home </h1>
-          <form class="" action="{{route('rental.store')}}" method="post"   enctype="multipart/form-data">
+          <form id="form" class="" action="{{route('rental.store')}}" method="post"   enctype="multipart/form-data">
             @csrf
             <div class="form-group col-12 px-0" >
               {{-- <label for="title">Title</label> --}}
