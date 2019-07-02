@@ -21,6 +21,7 @@
 
               @endif
               <a href="{{route('edit.rental',$rental->id)}}">Edit</a>
+              <a href="{{route('rental.statistics',$rental->id)}}"> <i class="fas fa-chart-bar"></i></a>
             </div>
 
 
