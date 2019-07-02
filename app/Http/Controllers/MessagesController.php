@@ -10,21 +10,50 @@ use App\User;
 class MessagesController extends Controller
 {
 
-  public function printMessagesById($id){
+  public function getInbox(){
 
-    if(auth()->user()->id != $id){
 
-      return redirect('rentals/all');
-    }else{
 
-      $user = User::findOrFail($id);
-      $messages = $user->messages()->orderBy('sent_date','DESC')->get();
+    // $user = User::findOrFail($id);
+    $messages = auth()->user()->messages()->orderBy('sent_date','DESC')->get();
 
-      return view('pages.private-messages', compact('messages'));
+    return view('pages.private-messages', compact('messages'));
+
+  }
+
+  public function getMessageById(Request $request){
+
+    if($request->ajax()){
+
+      $id = $request->id;
+      $message = Message::findOrFail($id);
+
+      $result = [];
+
+      $result["sender"] = $message->sender;
+      $result["sent_date"] = $message->sent_date;
+      $result["rental"] = $message->rental()->value('title');
+      $result["content"] = $message->content;
+
+      return response()->json($result);
+
     }
+
+
+
+
+
   }
 
   public function destroyMess($id){
+
+    $message = Message::findOrFail($id);
+    $message->delete();
+
+    return redirect(route('printMess', auth()->user()->id));
+  }
+
+  public function massDestroyMess($id){
 
     $message = Message::findOrFail($id);
     $message->delete();

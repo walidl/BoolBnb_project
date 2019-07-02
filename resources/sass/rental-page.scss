@@ -1,4 +1,3 @@
-
 section#rental-page
 {
 
@@ -30,13 +29,7 @@ section#rental-page
         }
       }
 
-      .big__img{
 
-        width: 100%;
-        border: fluid black;
-        border-width: thin;
-
-      }
     }
 
     .img__back{
@@ -66,13 +59,12 @@ section#rental-page
 
   .page__content{
     padding-top: 50px;
+    width: 50%;
+    margin: auto;
     // background-color: $red;
 
     .page__content__left{
-
-      width: 60%;
-
-      float: left;
+      margin-bottom: 50px;
 
       .text__title{
         margin-bottom: 30px;
@@ -88,7 +80,7 @@ section#rental-page
       }
 
       .services{
-        width: 100%;
+        width: 80%;
         display: flex;
         flex-wrap: wrap;
 
@@ -116,11 +108,12 @@ section#rental-page
       }
     }
     .page__content__right{
-      width: 40%;
+      // width: 40%;
       // height: 50px;
-      float: left;
+      // float: left;
 
       #mapR{
+
 
         z-index: 0;
       }
@@ -128,6 +121,8 @@ section#rental-page
 
     }
   }
+
+
 
 }
 
@@ -176,4 +171,206 @@ section#rental-page
 
   }
 
+}
+
+@media  (max-width: 490px){
+
+  #send-message{
+
+    width: 95%;
+    right:50%;
+    transform: translateX(50%);
+
+    .contact-renter{
+
+      width: 100%;
+      height: 30px;
+      font-size: 16px;
+
+    }
+
+  }
+}
+
+@media  (max-width: 768px){
+  section#rental-page{
+    .image{
+      height: 40vh;
+
+
+
+
+      .img__front{
+        width: 100%;
+        height:80%;
+        float: none;
+        overflow: hidden;
+
+
+        .back{
+
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          transition: transform .2s;
+
+        }
+
+
+      }
+
+      .img__back{
+        width: 100%;
+        height: 20%;
+        float: none;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+
+
+        .small__img{
+          padding: 0;
+          height: 100%;
+          width: 20%;
+          border: fluid black;
+          border-width: thin;
+          transition: transform .2s;
+          overflow: hidden;
+
+        }
+
+      }
+
+    }
+    .page__content{
+      width: 60%;
+
+      .page__content__left{
+
+        .services{
+          width: 80%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .services__item{
+            padding: 5%;
+            width: 33.333%;
+            background-color: white;
+            border: solid #D8D8D8;
+            border-width: thin;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .content__services__item{
+              font-size: 50px;
+
+
+            }
+            span{
+              position: absolute;
+              bottom: 1%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media  (max-width: 600px){
+
+  section#rental-page{
+    .image{
+      height: 30vh;
+
+
+
+
+      .img__front{
+        width: 100%;
+        height:80%;
+        float: none;
+        overflow: hidden;
+
+
+        .back{
+
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          transition: transform .2s;
+
+        }
+
+
+      }
+
+      .img__back{
+        width: 100%;
+        height: 20%;
+        float: none;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+
+
+        .small__img{
+          padding: 0;
+          height: 100%;
+          width: 20%;
+          border: fluid black;
+          border-width: thin;
+          transition: transform .2s;
+          overflow: hidden;
+
+        }
+
+      }
+
+    }
+    .page__content{
+      width: 80%;
+
+      .page__content__left{
+
+        .services{
+          width: 90%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .services__item{
+            padding: 7%;
+            width: 50%;
+            background-color: white;
+            border: solid #D8D8D8;
+            border-width: thin;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .content__services__item{
+              font-size: 40px;
+
+
+            }
+            span{
+              position: absolute;
+              bottom: 1%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+            }
+          }
+        }
+      }
+
+    }
+  }
 }

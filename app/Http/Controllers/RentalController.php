@@ -11,14 +11,6 @@ use App\User;
 
 class RentalController extends Controller
 {
-  // public function showRentals(){
-  //
-  //   $sponsoredRentals = Rental::sponsored()->get();
-  //   $notSponsoredRentals = Rental::notSponsored()->get();
-  //   $rentals = $sponsoredRentals->merge($notSponsoredRentals);
-  //
-  //   return view('pages.show-rentals',compact('rentals'));
-  // }
 
   public function showRental($id){
 
