@@ -38,8 +38,6 @@
 
               <i class="fas fa-bars"></i>
               <ul class="">
-                <li class="nav-item nav-link"> <a href="{{route('rental.create')}}">Host a home</a> </li>
-                <li class="nav-item nav-link"><a href="#">Host an experience</a></li>
 
                   <!-- Authentication Links -->
                 @guest
@@ -52,6 +50,8 @@
                     </li>
                   @endif
                   @else
+                    <li class="nav-item nav-link"> <a href="{{route('rental.create')}}">Host a home</a> </li>
+                    <li class="nav-item nav-link"><a href="#">Host an experience</a></li>
                     <li class="user-dropdown nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>

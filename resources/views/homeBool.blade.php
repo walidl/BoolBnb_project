@@ -77,9 +77,12 @@
 
        @foreach($rentals as $rental)
         <div class="col-4 room__card__small">
+          <a href="{{route('show.rental',$rental->id)}}" class="stretched-link"></a>
+
           <div class="room__card__small__img ciao" style="background-image:url({{asset('storage/images/'.$rental->image)}})">
             <div class="filter">
-
+              <a href="{{route('show.rental',$rental->id)}}" class="stretched-link"></a>
+              
             </div>
             <div class="sponsor-stamp">
               SPONSOR

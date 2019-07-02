@@ -49,10 +49,7 @@ class SearchController extends Controller
         $q->distance($lat,$lon,$radius);
       }
 
-      // if($title){
-      //   $q->where('title','LIKE', '%'. $title.'%');
-      //
-      // }
+
       if($rooms){
         $q->where('rooms','>=',  $rooms);
 
@@ -63,7 +60,6 @@ class SearchController extends Controller
 
       }
 
-      // $rentals = $q->get();
       $q2 = clone $q;
       $notSponsoredRentals = $q->notSponsored()->get();
       $sponsoredRentals = $q2->sponsored()->get();

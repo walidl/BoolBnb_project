@@ -134,7 +134,7 @@
                 data: {
                    content: jQuery('#content').val(),
                    sender : jQuery('#sender').val(),
-                   user_id : {{  auth()->user()->id }},
+                   user_id : {{  $rental->user->id }},
                    rental_id : {{$rental->id}}
                 },
                 success: function(result){
