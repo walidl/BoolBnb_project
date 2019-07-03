@@ -41,14 +41,18 @@ class RentalController extends Controller
 
     $validData = $request->validated();
 
+    // se la request contiene un file immagine
+
     if($request->hasFile('image')){
 
+      //predere il nome.estensione del file in ingresso
       $fileNameExt = $request->file('image')->getClientOriginalName();
-
+      //ricavo nome ed estensione separatamente
       $fileName = pathinfo($fileNameExt,  PATHINFO_FILENAME);
       $fileExtension = $request->file('image')->getClientOriginalExtension();
+      // genera un nuovo nome dell'immagine contente un time stamp per accertarci sia unico
       $fileNameToStore = $fileName.'_'.time().'.'.$fileExtension;
-
+      //salvataggio del file in public/images
       $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
 
     }
@@ -65,6 +69,7 @@ class RentalController extends Controller
     $rental->address = $validData['address'];
     $rental->lat = $validData['lat'];
     $rental->lon = $validData['lon'];
+    //salvo il nome del file nel rental
     $rental->image = $fileNameToStore;
     $rental->user_id = auth()->user()->id;
 
@@ -98,7 +103,6 @@ class RentalController extends Controller
   public function updateRental(editrentalRequest $request,$id){
 
     $validateData = $request->validated();
-    // dd($validateData);
 
     $rental = Rental::findOrFail($id);
     $rental->services()->sync($request->services);
