@@ -12362,6 +12362,9 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*Validation lato client tramite jquery-validation,un plugin jQuery
+Controllo dell'input del title e della description nelle pagine che permettono la creazione di un
+nuovo appartamento e la modifica di uno già esistente*/
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var jquery_validation = __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js");
@@ -12371,12 +12374,15 @@ $(document).ready(function () {
     rules: {
       title: {
         required: true,
-        minlength: 2,
-        lettersonly: true
+        minlength: 2
       },
       description: {
         required: true,
         minlength: 20
+      },
+      email: {
+        required: true,
+        email: true
       }
     },
     messages: {
@@ -12387,6 +12393,10 @@ $(document).ready(function () {
       description: {
         required: 'Please enter a description.',
         minlength: 'Description must have at least 20 characters.'
+      },
+      email: {
+        required: 'Please enter you email.',
+        email: 'Please enter a valid email.'
       }
     }
   });

@@ -1,4 +1,3 @@
-
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -22,45 +21,45 @@ var map = tomtom.L.map('map', {
   zoom: 12
 });
 
-//Search box autocomplete
+//Search box autocomplete e mappa per l'inserimento di un nuovo rental
 function tomtomAutoComp(){
 
   var searchBoxInstance = tomtom.searchBox({
         collapsible: false,
         searchOnDragEnd: 'never'
-    }).addTo(map);
+  }).addTo(map);
 
-    var searchPanel = $("#search-panel");
+  var searchPanel = $("#search-panel");
 
-    searchPanel.append(searchBoxInstance.getContainer());
+  searchPanel.append(searchBoxInstance.getContainer());
 
-    searchPanel.change(function () {
+  searchPanel.change(function () {
 
-      var value = $(this).text();
+    var value = $(this).text();
 
-      var val = value.split(',');
+    var val = value.split(',');
 
-      var address = val[0]+","+val[1];
+    var address = val[0]+","+val[1];
 
-      tomtom.fuzzySearch().query(address).go(function (result) {
-       var lat = result[0].position.lat;
-       var lon = result[0].position.lon;
+    tomtom.fuzzySearch().query(address).go(function (result) {
+      var lat = result[0].position.lat;
+      var lon = result[0].position.lon;
 
-       var markers = new L.TomTomMarkersLayer().addTo(map);
-       markers.setMarkersData([[lat,lon]]);
+      var markers = new L.TomTomMarkersLayer().addTo(map);
+      markers.setMarkersData([[lat,lon]]);
 
-       markers.addMarkers();
-       map.fitBounds(markers.getBounds());
+      markers.addMarkers();
+      map.fitBounds(markers.getBounds());
 
-       var addr = result[0].address.freeformAddress;
+      var addr = result[0].address.freeformAddress;
 
-       var addrInput = $("#addr");
-       var latInput = $("#lat");
-       var lonInput = $("#lon");
+      var addrInput = $("#addr");
+      var latInput = $("#lat");
+      var lonInput = $("#lon");
 
-       addrInput.val(addr);
-       latInput.val(lat);
-       lonInput.val(lon).trigger('change');
+      addrInput.val(addr);
+      latInput.val(lat);
+      lonInput.val(lon).trigger('change');
     });
 
   });
