@@ -49797,7 +49797,7 @@ var map = tomtom.L.map('map', {
   key: 'T1lAQG5AAAhzXmU8kZ5dB5zchnRTeyTG',
   center: [45.46239, 9.19026],
   zoom: 12
-}); //Search box autocomplete
+}); //Search box autocomplete e mappa per l'inserimento di un nuovo rental
 
 function tomtomAutoComp() {
   var searchBoxInstance = tomtom.searchBox({

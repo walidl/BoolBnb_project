@@ -81,7 +81,7 @@
     Contact renter <i class="fas fa-envelope-open-text ml-2"></i>
   </div>
   <div class=" message py-2 px-1"  style="display: none">
-    <form class="" action="index.html" method="post">
+    <form id="form" class="" action="index.html" method="post">
       <div class="form-group">
         <input id="sender" type="email" class="form-control typeahead" name = "email" placeholder="Enter your E-mail">
       </div>
@@ -131,14 +131,14 @@
             });
 
              jQuery.ajax({
-               
+
                 url: "{{ route('message.store') }}",
                 method: 'post',
                 data: {
                    content: jQuery('#content').val(),
                    sender : jQuery('#sender').val(),
                    user_id : {{  $rental->user->id }},
-                   rental_id : {{$rental->id}}
+                   rental_id : {{ $rental->id }}
                 },
                 success: function(result){
                    if(result.success){
@@ -152,7 +152,7 @@
               });
           });
 
-    //Mappa
+    //Mappa relativa al rental in questione
     var latR = {{$rental->lat}};
     var lonR = {{$rental->lon}};
     var address = $("#address").text();
@@ -176,7 +176,7 @@
   });
 
 
-  //Autocomplete email
+  //Autocomplete email tramite typeahead,plugin di Bootstrap
   var usersMail = [];
 
   @foreach ($users as $user)

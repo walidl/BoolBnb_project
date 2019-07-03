@@ -13,6 +13,7 @@
       function () {
         var values = [];
 
+        //Visite per mese
         values[0] = {{$rental->views()->whereMonth('created_at','1')->count()}};
         values[1] = {{$rental->views()->whereMonth('created_at','2')->count()}};
         values[2] = {{$rental->views()->whereMonth('created_at','3')->count()}};
@@ -35,20 +36,20 @@
               label: 'Views by month',
               backgroundColor: 'lightblue',
               data: values,
-          }]
-         },
-         options : {
-           scales : {
-             yAxes : [{
-               ticks : {
+            }]
+          },
+            options : {
+              scales : {
+               yAxes : [{
+                ticks : {
                  stepSize : 1
-               }
-             }]
-           }
-         }
-        });
-    }
-  );
+                }
+               }]
+              }
+            }
+       });
+      }
+    );
   </script>
 
 @endsection
