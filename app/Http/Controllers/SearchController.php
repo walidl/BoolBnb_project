@@ -20,7 +20,6 @@ class SearchController extends Controller
 
     if($request->ajax()){
 
-      // $title = $request->title;
       $rooms = (int)$request->rooms;
       $beds = (int)$request->beds;
       $beds = (int)$request->beds;
@@ -28,12 +27,11 @@ class SearchController extends Controller
       $lat = (float)$request->lat;
       $lon = (float)$request->lon;
 
-      // $servicesIDs = (array)$request->services;
-
+      // mapping dell'array dei servizi per convertire gli id da stringa a intero
       $servicesIDs = array_map('intval', (array)$request->services);
-      // echo json_encode($request);
+
+      //inizializzazione query
       $q = Rental::query();
-      // $q->notSponsored();
 
       if( count($servicesIDs) > 0){
 
@@ -49,42 +47,43 @@ class SearchController extends Controller
         $q->distance($lat,$lon,$radius);
       }
 
-      // if($title){
-      //   $q->where('title','LIKE', '%'. $title.'%');
-      //
-      // }
+
       if($rooms){
         $q->where('rooms','>=',  $rooms);
 
       }
 
       if($beds){
-        $q->where('bedrooms','>=',  $beds);
+        $q->where('beds','>=',  $beds);
 
       }
 
-      $rentals = $q->get();
+      //clone della query
+      $q2 = clone $q;
+      //biforcazione della query sponsored e notSponsored
+      $notSponsoredRentals = $q->notSponsored()->get();
+      $sponsoredRentals = $q2->sponsored()->get();
 
+      $result = array();
+      $found = 0;
+      $html = "";
 
-      if($rentals->count() > 0){
-
-        $html = view('components.rental-component', compact('rentals'))->render();
-
+      if($sponsoredRentals->count() > 0){
+        $found += $sponsoredRentals->count();
+        $html .= view('components.sponsored_rental-component', ['rentals' => $sponsoredRentals])->render();
       }
-      else{
 
-        $html = '<p>no data found</p>';
+      if($notSponsoredRentals->count() > 0){
+
+        $found += $notSponsoredRentals->count();
+        $html .= view('components.rental-component', ['rentals' => $notSponsoredRentals] )->render();
       }
+      $result["count"] = $found;
+      $result['results'] = $html;
 
-      return response()->json([
-        'card_data' => $html
-      ]);
+      return response()->json($result);
 
-      // $data = array(
-      //
-      //   'card_data' => $html
-      // );
-      // echo json_encode($data);
+
     }
 
   }

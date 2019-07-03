@@ -1,0 +1,378 @@
+section#rental-page
+{
+
+  .image{
+    width: 100%;
+    margin-top: 20px;
+    height: 60vh;
+    background-color: black;
+    overflow: hidden;
+
+
+
+    .img__front{
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      float: left;
+
+      .back{
+
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        transition: transform .2s;
+        &:hover{
+          opacity: 0.5;
+          transform: scale(1.2);
+        }
+      }
+
+
+    }
+
+    .img__back{
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      float: left;
+
+      .small__img{
+        padding: 0;
+        height: 50%;
+        width: 50%;
+        border: fluid black;
+        border-width: thin;
+        transition: transform .2s;
+        overflow: hidden;
+        &:hover{
+          opacity: 0.5;
+
+        }
+      }
+
+    }
+
+  }
+
+  .page__content{
+    padding-top: 50px;
+    margin: auto;
+    // background-color: $red;
+
+    .page__content__left{
+
+      width: 60%;
+      margin-bottom: 50px;
+
+      .text__title{
+        margin-bottom: 30px;
+      }
+
+      .information{
+        span{
+          padding: 15px;
+        }
+      }
+
+
+      .services{
+
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .services__item{
+          padding: 2%;
+          width: 25%;
+          background-color: white;
+          border: solid #D8D8D8;
+          border-width: thin;
+          position: relative;
+
+          .content__services__item{
+            font-size: 50px;
+
+          }
+
+        }
+      }
+    }
+    .page__content__right{
+
+
+      #mapR{
+        z-index: 0;
+      }
+
+    }
+  }
+
+
+
+}
+
+#send-message{
+
+  width: 400px;
+  display: inline-block;
+  position:fixed;
+  bottom: 0;
+  right:50px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.2);
+  transition: width 1s ease;
+
+  &.sent{
+
+    width: 230px;
+  }
+
+  .contact-renter{
+
+    width: 100%;
+    height: 40px;
+    background: #283E4A;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor:pointer;
+
+    .fa-check{
+
+      color: lightgreen;
+    }
+  }
+
+  .message{
+
+    background-color: #F8FAFC;
+    border: 1px solid #ccc;
+
+    textarea{
+
+      resize: none;
+      background: white;
+    }
+
+  }
+
+}
+
+@media  (max-width: 490px){
+
+  #send-message{
+
+    width: 95%;
+    right:50%;
+    transform: translateX(50%);
+
+    .contact-renter{
+
+      width: 100%;
+      height: 30px;
+      font-size: 16px;
+
+    }
+
+  }
+}
+@media  (max-width: 991px){
+  section#rental-page{
+
+    .page__content{
+
+
+      .page__content__left{
+        width: 100%;
+        
+      }
+
+    }
+  }
+}
+@media  (max-width: 768px){
+  section#rental-page{
+    .image{
+      height: 40vh;
+
+
+
+
+      .img__front{
+        width: 100%;
+        height:80%;
+        float: none;
+        overflow: hidden;
+
+
+        .back{
+
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          transition: transform .2s;
+
+        }
+
+
+      }
+
+      .img__back{
+        width: 100%;
+        height: 20%;
+        float: none;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+
+
+        .small__img{
+          padding: 0;
+          height: 100%;
+          width: 20%;
+          border: fluid black;
+          border-width: thin;
+          transition: transform .2s;
+          overflow: hidden;
+
+        }
+
+      }
+
+    }
+    .page__content{
+      width: 60%;
+
+      .page__content__left{
+
+        .services{
+          width: 80%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .services__item{
+            padding: 5%;
+            width: 33.333%;
+            background-color: white;
+            border: solid #D8D8D8;
+            border-width: thin;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .content__services__item{
+              font-size: 30px;
+
+
+            }
+            span{
+              position: absolute;
+              bottom: 1%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media  (max-width: 600px){
+
+  section#rental-page{
+    .image{
+      height: 30vh;
+
+
+
+
+      .img__front{
+        width: 100%;
+        height:80%;
+        float: none;
+        overflow: hidden;
+
+
+        .back{
+
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          transition: transform .2s;
+
+        }
+
+
+      }
+
+      .img__back{
+        width: 100%;
+        height: 20%;
+        float: none;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+
+
+        .small__img{
+          padding: 0;
+          height: 100%;
+          width: 20%;
+          border: fluid black;
+          border-width: thin;
+          transition: transform .2s;
+          overflow: hidden;
+
+        }
+
+      }
+
+    }
+    .page__content{
+      width: 80%;
+
+      .page__content__left{
+
+        .services{
+          width: 90%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .services__item{
+            padding: 7%;
+            width: 50%;
+            background-color: white;
+            border: solid #D8D8D8;
+            border-width: thin;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .content__services__item{
+              font-size: 30px;
+
+
+            }
+            span{
+              position: absolute;
+              bottom: 1%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

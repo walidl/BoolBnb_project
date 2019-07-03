@@ -1,6 +1,40 @@
-#map{
-  width: 300px;
-  height: 300px;
+#map,#mapE{
+  width: 300px!important;
+  height: 300px!important;
+}
+
+#mapR{
+
+  width: 350px!important;
+  height: 350px!important;
+}
+
+@media all and (max-width: 363px){
+
+  #map,#mapE,#mapR{
+    width: 240px!important;
+    height: 240px!important;
+
+  }
+}
+
+.error{
+  color: red;
+}
+
+.graph-container{
+  >h2{
+    text-align: center;
+    padding: 10px;
+  }
+
+  >#myChart{
+    width: 80% !important;
+    height: 100% !important;
+
+    margin: auto;
+    padding: 10px;
+  }
 }
 
 // Fonts
@@ -29,3 +63,15 @@
 
 //NewRental
 @import 'newRental';
+
+//searchpage
+@import 'search-page';
+
+//rental page
+@import 'rental-page';
+
+// User Rentals Page
+@import 'user-rentals';
+
+// Sponsor Payment
+@import 'payment-sponsor';

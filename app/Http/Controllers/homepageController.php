@@ -9,7 +9,7 @@ class homepageController extends Controller
 {
   function homeRental(){
 
-    $rentals = Rental::notSponsored()->get();
+    $rentals = Rental::sponsored()->get();
 
     return view('homeBool', compact('rentals'));
   }

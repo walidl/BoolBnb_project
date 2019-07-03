@@ -4,27 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RentalRequest;
+use App\Http\Requests\editrentalRequest;
+
 use App\Rental;
 use App\Service;
+use App\RentalViews;
+use App\User;
 
 class RentalController extends Controller
 {
-  public function showRentals(){
 
-    $sponsoredRentals = Rental::sponsored()->get();
-    $notSponsoredRentals = Rental::notSponsored()->get();
-    $rentals = $sponsoredRentals->merge($notSponsoredRentals);
-
-    return view('pages.show-rentals',compact('rentals'));
-  }
-
-  public function sponsoredRentals(){
-
-    $rentals = Rental::sponsored()->get();
-
-    return view('pages.show-rentals',compact('rentals'));
+  public function showRental($id){
 
 
+    $rental = Rental::findOrFail($id);
+
+    //Salvataggio visita
+    $rentalview = new RentalViews();
+    $rentalview->rental_id = $rental->id;
+    $rentalview->ip = \Request::getClientIp();
+    $rentalview->save();
+
+    //Users UPR e UPRA
+    $users = User::all();
+
+    return view('pages.rental-page',compact('rental','users'));
   }
 
   public function createRental(){
@@ -37,14 +41,18 @@ class RentalController extends Controller
 
     $validData = $request->validated();
 
+    // se la request contiene un file immagine
+
     if($request->hasFile('image')){
 
+      //predere il nome.estensione del file in ingresso
       $fileNameExt = $request->file('image')->getClientOriginalName();
-
+      //ricavo nome ed estensione separatamente
       $fileName = pathinfo($fileNameExt,  PATHINFO_FILENAME);
       $fileExtension = $request->file('image')->getClientOriginalExtension();
+      // genera un nuovo nome dell'immagine contente un time stamp per accertarci sia unico
       $fileNameToStore = $fileName.'_'.time().'.'.$fileExtension;
-
+      //salvataggio del file in public/images
       $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
 
     }
@@ -61,6 +69,7 @@ class RentalController extends Controller
     $rental->address = $validData['address'];
     $rental->lat = $validData['lat'];
     $rental->lon = $validData['lon'];
+    //salvo il nome del file nel rental
     $rental->image = $fileNameToStore;
     $rental->user_id = auth()->user()->id;
 
@@ -72,7 +81,9 @@ class RentalController extends Controller
     $services = Service::find($servicesIDs);
     $rental->services()->sync($services);
 
-    return redirect(route('rental.show-all'));
+    auth()->user()->update(["renting" => true]);
+
+    return redirect(route('user.rentals'));
 
 
   }
@@ -80,21 +91,56 @@ class RentalController extends Controller
   public function editRental($id){
     $rental = Rental::findOrFail($id);
 
-    // if(auth()->user()->id != $rental->user->id){//Modifica permessa solo al proprietario dell'appartamento
-      // return redirect('rentals/all');
-    // }else {
+    if(auth()->user()->id != $rental->user->id){
+      //Modifica permessa solo al proprietario dell'appartamento
+      return redirect('/user/rentals');
+    }else {
       $services = Service::all();
       return view('pages.edit-rental',compact('rental','services'));
-    // }
+    }
   }
 
-  public function updateRental(RentalRequest $request,$id){
-    $validateData = $request->validated();
-    $rental = Rental::findOrFail($id);
-    $rental->update($validateData);
-    $rental->services()->sync($request->services);
+  public function updateRental(editrentalRequest $request,$id){
 
-    return redirect(route('rental.show-all'));
+    $validateData = $request->validated();
+
+    $rental = Rental::findOrFail($id);
+    $rental->services()->sync($request->services);
+    $rental->update([
+
+      'title' => $validateData['title'],
+      'description' => $validateData['description'],
+      'rooms' => $validateData['rooms'],
+      'beds' => $validateData['beds'],
+      'bathrooms' => $validateData['bathrooms'],
+      'square_meters' => $validateData['square_meters'],
+      'address' => $validateData['address'],
+      'lat' => $validateData['lat'],
+      'lon' => $validateData['lon'],
+    ]);
+
+    if($request->hasFile('image')){
+
+      //Unlink elimina l'immagine precedete
+      // unlink(storage_path('app/public/images/'.$rental->image));
+      $fileNameExt = $request->file('image')->getClientOriginalName();
+
+      $fileName = pathinfo($fileNameExt,  PATHINFO_FILENAME);
+      $fileExtension = $request->file('image')->getClientOriginalExtension();
+      $fileNameToStore = $fileName.'_'.time().'.'.$fileExtension;
+
+      $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
+      $rental->image = $fileNameToStore;
+      $rental->save();
+    }
+
+
+    return redirect(route('user.rentals'));
+  }
+
+  public function showStat($id){
+    $rental = Rental::findOrFail($id);
+    return view('pages.rental-statistics',compact('rental'));
   }
 
 }

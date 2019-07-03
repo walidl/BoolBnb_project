@@ -8,10 +8,11 @@
 
     {{-- Title --}}
     <title>{{ config('app.name', 'BoolBnb') }}</title>
-
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <!-- Scripts -->
     <script src="{{ asset('tomtom-sdk/tomtom.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/clientside-validation.js') }}" charset="utf-8"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('tomtom-sdk/map.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -29,35 +31,40 @@
             <!-- Left Side Of Navbar -->
             <div class="navbar__left">
               <div class="navbar_logo">
-                <img src="https://cdn.worldvectorlogo.com/logos/airbnb-1.svg" alt="" href="{{ url('/') }}">
+                <a href="/"><img src="https://cdn.worldvectorlogo.com/logos/airbnb-1.svg" alt="" href="/"></a>
+                <a href="{{route('search.index')}}" class="header-link search-link" >Search <i class="fas fa-search"></i></a>
               </div>
             </div>
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-
             <!-- Right Side Of Navbar -->
-            <div class="navbar__right">
+            <div class="navbar__right ">
 
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item nav-link dropdown">Host a home</li>
-                <li class="nav-item nav-link dropdown">Host an experience</li>
+              <i class="fas fa-bars"></i>
+              <ul class="align-items-center">
 
+                <li class="nav-item nav-link"> <a class="header-link" href="{{route('rental.create')}}">Host a home</a> </li>
+                <li class="nav-item nav-link"><a class="header-link" href="#">Host an experience</a></li>
                   <!-- Authentication Links -->
                 @guest
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      <a class="nav-link header-link login" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
                   @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link header-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                   @endif
                   @else
-                    <li class="nav-item dropdown">
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <li class="user-dropdown nav-item dropdown">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle header-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ route('logout') }}"
+                        @if (auth()->user()->renting)
+
+                          <a href="{{route('user.rentals')}}" class="dropdown-item header-link">My Rentals</a>
+                          <a href="{{route('printMess',auth()->user()->id)}}" class="dropdown-item header-link">My messages</a>
+                        @endif
+                          <a class="dropdown-item header-link" href="{{ route('logout') }}"
                              onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
                               {{ __('Logout') }}
@@ -70,7 +77,9 @@
                   @endguest
               </ul>
             </div>
-          </div>
+            {{-- <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent"> --}}
+
+          {{-- </div> --}}
         </nav>
         <main class="p-0">
             @yield('content')
@@ -122,9 +131,44 @@
             <i class="fab fa-airbnb"></i>
             <i class="far fa-copyright"></i>
             <h6 class="copyrights">BoolBnb. All rights reserved.</h6>
-            <h6>Powered with <i class="fas fa-heart"></i> by Walid, Emanuele, Riccardo, Sara.</h6>
+            <h6>Powered with <i class="fas fa-heart"></i> By Walid, Emanuele,Sara e Riccardo.</h6>
           </div>
         </footer>
       </div>
+
+      <script type="text/javascript">
+
+      $(document).ready(function(){
+
+        $(window).resize(function(){
+          if ($(window).width() >= 768){
+
+            $("ul").css("display", "");
+
+          }
+        })
+
+        $(document).click(function(event){
+          event.stopPropagation();
+
+          if($(window).width() < 768){
+
+            if($(event.target).is(".fa-bars")){
+              $("ul").show();
+
+            }else{
+
+              $("ul").hide();
+            }
+          }
+
+        })
+
+
+
+
+      })
+
+      </script>
   </body>
 </html>

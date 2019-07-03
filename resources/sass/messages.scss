@@ -7,6 +7,9 @@
 
   table{
 
+    // max-width: none!important;
+    position: relative;
+
     thead{
 
       tr{
@@ -26,8 +29,8 @@
 
         &:hover{
 
-          background: darkgrey;
-          font-weight: bold;
+          background: #E8F2FE;
+          font-weight: 600;
           cursor:pointer;
         }
 
@@ -43,8 +46,159 @@
             background-color: Transparent;
             border:none;
           }
+
+          &.contMess{
+
+
+
+            p{
+              display: inline-block;
+              width: 520px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+
+          }
         }
       }
+
+
     }
   }
+
+
+}
+#show-message{
+
+  display: none;
+  position:fixed;
+
+  width: 40%;
+  height: 400px;
+  top:50%;
+  left:50%;
+  transform: translate(-50% , -50%);
+  z-index:5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #F8FAFC;
+
+  .sender{
+    padding: 0 30px;
+    background-color: #283E4A;
+    height: 40px;
+    color: white;
+    font-weight: 600;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .fas{
+      position: relative;
+      left: -8px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+  }
+
+  .box{
+
+
+  }
+  .rental{
+
+    height: 35px;
+    border-bottom: 1px solid #ccc;
+
+    .etichetta{
+      border-right: 1px solid #ccc;
+
+    }
+  }
+
+  .content{
+
+    font-size: 20px;
+    overflow-y: auto;
+  }
+
+  &.bounce-enter-active {
+    display:block;
+    animation: bounce-in .5s;
+  }
+  &.bounce-leave-active {
+    animation: bounce-in .5s reverse;
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@media all and (max-width: 1035px){
+  td{
+
+    &.contMess{
+      p{
+
+        width: 300px!important;
+
+      }
+
+    }
+
+  }
+
+  #show-message{
+
+    width: 50%;
+
+  }
+}
+
+@media all and (max-width: 835px){
+
+  .contMess{
+
+    display: none;
+
+  }
+
+  #show-message{
+
+    width: 70%;
+
+  }
+}
+
+@media all and (max-width: 461px){
+
+  .star{
+
+    display: none;
+
+  }
+
+  .sent-date{
+    display: none;
+
+  }
+
+  #show-message{
+
+    width: 90%;
+    min-width: 367px;
+
+  }
+
 }

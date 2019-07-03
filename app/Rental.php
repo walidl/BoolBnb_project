@@ -29,6 +29,30 @@ class Rental extends Model
     return $this->hasMany(Message::class);
   }
 
+  public function views(){
+    return $this->hasMany(RentalViews::class);
+  }
+
+  //Controlla se il servizio in ingresso fa parte dei servizi del rental
+
+  public function isService($serviceId){
+
+
+    foreach ($this->services as $service) {
+
+      if($service->id == $serviceId){
+
+        return true;
+      }
+
+    }
+
+    return false;
+  }
+
+  // scope per i rental sponsorizzati al momento
+  // confronta a end_date con la data attuale
+
   public function scopeSponsored($query)
   {
 
@@ -40,6 +64,8 @@ class Rental extends Model
     });
 
   }
+
+  // scope per i rental non sponsorizzati
 
   public function scopeNotSponsored($query)
   {
@@ -53,6 +79,8 @@ class Rental extends Model
      });
 
   }
+
+  // Ritorna true se il rental è attualmente sponsorizzato
 
   function isSponsored(){
 
@@ -78,6 +106,8 @@ class Rental extends Model
     }
   }
 
+  //Scope dei rental che si trovano nel radius  del punto rappresentato da latitude e longitude
+
   public function ScopeDistance($query,$latitude,$longitude,$radius)
   {
 
@@ -88,6 +118,7 @@ class Rental extends Model
                            ) + sin( radians(?) ) *
                            sin( radians( lat ) ) )
                          ) AS distance', [$latitude, $longitude, $latitude])
+        ->orderBy( 'distance', 'ASC' )
         ->havingRaw("distance < ?", [$radius]);
   }
 }

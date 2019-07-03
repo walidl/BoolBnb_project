@@ -2,56 +2,79 @@
 
 @section('content')
 
-  <div class="container">
-    <div class="row">
-      @foreach ($rentals as $rental)
+  <section  id="user-rentals" class=" py-5">
 
-        <div class="card col-5 m-2 pt-3" style="width: 18rem;">
+    <div class="container">
+      <div class="row justify-content-center">
+        @foreach ($rentals as $rental)
 
-          @if ($rental->isSponsored())
-            <div class="">
-              <i class="fas fa-star"></i>
+          <div class="card m-2 p-0" style="width: 18rem;">
+            <div class="card-header d-flex justify-content-between">
+              @if (!$rental->isSponsored())
 
-            </div>
-          @endif
+                <a href="{{route('payment.sponsor',$rental->id)}}">Sponsor</a>
+              @else
 
-          {{$rental->user->name}} {{$rental->user->lastname}}
-          <img src="{{asset('storage/images/'.$rental->image)}}" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">{{$rental->title}}</h5>
-            <div class="">
-              Address: {{$rental->address}}
+                <div class="sponsor-stamp">
+                  SPONSORED
+                </div>
+
+              @endif
+              <a href="{{route('edit.rental',$rental->id)}}">Edit</a>
+              <a href="{{route('rental.statistics',$rental->id)}}"> <i class="fas fa-chart-bar"></i></a>
             </div>
-            <div class="">
-              Rooms: {{$rental->rooms}}
-            </div>
-            <div class="">
-              Bathrooms: {{$rental->bathrooms}}
-            </div>
-            <div class="">
-              Bedrooms: {{$rental->bedrooms}}
-            </div>
-            <div class="">
-              Surface: {{$rental->square_meters}} m<sup>2</sup>
-            </div>
-            <div class="">
-              Description: {{$rental->description}}
-            </div>
-            <div class="">
 
 
-              @foreach ($rental->services as $service)
-                <i class="{{$service->icon}} mx-2"></i>
-              @endforeach
+            <div class="card-body">
+
+              <a href="{{route('show.rental',$rental->id)}}" class='title'>
+                <h5 class="card-title">{{$rental->title}}</h5>
+              </a>
+
+              <hr>
+              <div class="">
+                <b>Address:</b> {{$rental->address}}
+              </div>
+              <div class="">
+                <b>Rooms:</b> {{$rental->rooms}}
+              </div>
+              <div class="">
+                <b>Bathrooms:</b> {{$rental->bathrooms}}
+              </div>
+              <div class="">
+                <b>Beds:</b> {{$rental->beds}}
+              </div>
+              <div class="">
+                <b>Surface:</b> {{$rental->square_meters}} m<sup>2</sup>
+              </div>
+              <b>Services:</b>
+              <div class="">
+
+
+                @foreach ($rental->services as $service)
+                  <i class="{{$service->icon}} mx-2"></i>
+                @endforeach
+              </div>
+                <hr>
+              <div class="">
+                <b>Description:</b> <br>{{$rental->description}}
+              </div>
+              <hr>
+              <b>Image</b>
+              <div class="images">
+
+                <div class="image">
+                  <img src="{{asset('storage/images/'.$rental->image)}}" alt="">
+                </div>
+              </div>
             </div>
+
           </div>
-          <div class="card-footer">
-            <a href="{{route('payment.sponsor',$rental->id)}}">Sponsor</a>
-          </div>
-        </div>
 
-      @endforeach
+        @endforeach
 
+      </div>
     </div>
-  </div>
+  </section>
+
 @stop

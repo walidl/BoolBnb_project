@@ -1,4 +1,44 @@
+nav{
+
+  a.header-link{
+    color:inherit;
+    font-weight: 600;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &:hover{
+
+      text-decoration: none;
+      opacity: 1;
+
+    }
+
+
+    &.search-link{
+
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 3px 5px;
+      margin-left: 30px;
+    }
+
+    &.login{
+
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 3px 5px;
+      margin-left: 30px;
+
+    }
+
+
+  }
+
+}
+
 .navbar__left{
+
 
   height: 100%;
   width: 50%;
@@ -12,7 +52,7 @@
 
     img{
 
-      width: 50px;
+      height: 40px;
     }
 
     &:hover{
@@ -29,5 +69,103 @@
   &:hover{
 
     cursor:pointer;
+  }
+
+  .fa-bars{
+
+    display: none;
+  }
+  ul{
+
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    list-style: none;
+
+  }
+
+  .nav-item{
+
+    white-space: nowrap;
+  }
+
+
+}
+@media all and (max-width: 768px) {
+
+  nav{
+
+    a.header-link{
+
+
+    &.login{
+
+      display: inline;
+      border: none;
+      border-radius: 0;
+      padding: 8px 16px;
+      margin-left: 0;
+
+    }
+
+
+  }
+  }
+
+  .navbar__right{
+
+    position: relative;
+
+    .fa-bars{
+
+      display: inline-block;
+
+      color: #666;
+      padding: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 3px;
+      font-size: 20px;
+    }
+
+    ul{
+
+      display: none;
+      position:absolute;
+      right:0;
+      background-color: white;
+      z-index:3;
+      padding-left: 0;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+
+      li{
+
+        transition: background-color 0.3s ease;
+
+        &:hover{
+
+          background-color: #F8F9FA;
+
+          a{
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .user-dropdown{
+
+      position:relative!important;
+      z-index:3!important;
+
+      .dropdown-menu{
+
+        position: absolute!important;
+        top:0;
+        right: 101%;
+        z-index:3!important;
+      }
+
+    }
   }
 }
