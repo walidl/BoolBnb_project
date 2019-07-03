@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,10 +14,22 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in!                    
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+
+$(document).ready(
+
+  window.setTimeout(function () {
+    window.location = "{{ route('homepage') }}";
+  }, 3000);
+
+
+)
+</script>
 @endsection

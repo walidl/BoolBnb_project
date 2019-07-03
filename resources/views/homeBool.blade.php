@@ -82,7 +82,7 @@
           <div class="room__card__small__img ciao" style="background-image:url({{asset('storage/images/'.$rental->image)}})">
             <div class="filter">
               <a href="{{route('show.rental',$rental->id)}}" class="stretched-link"></a>
-              
+
             </div>
             <div class="sponsor-stamp">
               SPONSOR
@@ -113,19 +113,19 @@
   <div class="card__city_section  container">
     {{-- <h1>Recommended for you</h1> --}}
     <div class="section ">
-      <div class="card__city col-6 col-md-3" style="background-image:url('https://source.unsplash.com/collection/656615/600x800')">
+      <div class="card__city col-6 col-md-3" style="background-image:url('https://images.unsplash.com/photo-1508711046474-2f4c2d3d30ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80')">
         <span>London</span>
       </div>
-      <div class="card__city col-6 col-md-3" style="background-image:url('https://source.unsplash.com/collection/1203498/600x800')">
+      <div class="card__city col-6 col-md-3" style="background-image:url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80')">
         <span>Paris</span>
       </div>
-      <div class="card__city col-6 col-md-3" style="background-image:url('https://source.unsplash.com/collection/2145666/600x800')">
+      <div class="card__city col-6 col-md-3" style="background-image:url('https://images.unsplash.com/photo-1540224485413-4c7939106f3a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2069&q=80')">
         <span>Berlin</span>
       </div>
-      <div class="card__city col-6 col-md-3" style="background-image:url('https://source.unsplash.com/collection/2082503/600x800')">
+      <div class="card__city col-6 col-md-3" style="background-image:url('https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2555&q=80')">
         <span>Rome</span>
       </div>
-      <div class="card__city col-6 col-md-3" style="background-image:url('https://source.unsplash.com/collection/1847877/600x800')">
+      <div class="card__city col-6 col-md-3" style="background-image:url('https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1233&q=80')">
         <span>New York</span>
       </div>
     </div>

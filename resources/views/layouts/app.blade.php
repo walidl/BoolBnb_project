@@ -39,18 +39,18 @@
             <div class="navbar__right ">
 
               <i class="fas fa-bars"></i>
-              <ul class="">
+              <ul class="align-items-center">
 
                 <li class="nav-item nav-link"> <a class="header-link" href="{{route('rental.create')}}">Host a home</a> </li>
                 <li class="nav-item nav-link"><a class="header-link" href="#">Host an experience</a></li>
                   <!-- Authentication Links -->
                 @guest
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      <a class="nav-link header-link login" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
                   @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link header-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                   @endif
                   @else
