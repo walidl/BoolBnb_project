@@ -10705,6 +10705,14 @@ nav a.header-link.search-link {
   margin-left: 30px;
 }
 
+nav a.header-link.login {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 3px 5px;
+  margin-left: 30px;
+}
+
 .navbar__left {
   height: 100%;
   width: 50%;
@@ -10746,6 +10754,14 @@ nav a.header-link.search-link {
 }
 
 @media all and (max-width: 768px) {
+  nav a.header-link.login {
+    display: inline;
+    border: none;
+    border-radius: 0;
+    padding: 8px 16px;
+    margin-left: 0;
+  }
+
   .navbar__right {
     position: relative;
   }
