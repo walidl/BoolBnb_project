@@ -31,8 +31,9 @@
             <h1>{{$rental->title}}</h1>
             <div class="information">
               <span>{{$rental->square_meters}} m<sup>2</sup> </span>
-              <span>{{$rental->beds}} letti</span>
-              <span>{{$rental->bathrooms}} bagni</span>
+              <span>{{$rental->rooms}} Rooms </span>
+              <span>{{$rental->beds}} Beds</span>
+              <span>{{$rental->bathrooms}} bathrooms</span>
             </div>
           </div>
           <div class="text__description">
@@ -109,15 +110,13 @@
 
     })
 
+    //Dopo invio del messaggio
     function messageSent(){
 
       etichetta.click();
       var logo = "<i class='fas fa-check ml-2'>"
-      etichetta.html("messaggio inviato" + logo).css("pointer-events","none")
+      etichetta.html("message sent" + logo).css("pointer-events","none")
                .closest("#send-message").addClass('sent');
-
-
-
 
     }
 
@@ -132,6 +131,7 @@
             });
 
              jQuery.ajax({
+               
                 url: "{{ route('message.store') }}",
                 method: 'post',
                 data: {
