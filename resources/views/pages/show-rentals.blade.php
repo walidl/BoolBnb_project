@@ -5,7 +5,7 @@
   <section  id="user-rentals" class=" py-5">
 
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-center">
         @foreach ($rentals as $rental)
 
           <div class="card m-2 p-0" style="width: 18rem;">

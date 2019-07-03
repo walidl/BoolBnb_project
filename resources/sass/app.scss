@@ -9,9 +9,9 @@
   height: 350px!important;
 }
 
-@media (max-width: 361px){
+@media all and (max-width: 363px){
 
-  #map{
+  #map,#mapE,#mapR{
     width: 240px!important;
     height: 240px!important;
 

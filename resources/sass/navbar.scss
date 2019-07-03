@@ -1,4 +1,32 @@
+nav{
+
+  a.header-link{
+    color:inherit;
+    font-weight: 600;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &:hover{
+
+      text-decoration: none;
+      opacity: 1;
+
+    }
+
+
+    &.search-link{
+
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 3px 5px;
+      margin-left: 30px;
+    }
+  }
+
+}
+
 .navbar__left{
+
 
   height: 100%;
   width: 50%;
@@ -42,19 +70,6 @@
     margin-bottom: 0;
     list-style: none;
 
-    a{
-      color:inherit;
-      font-weight: 600;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-
-      &:hover{
-
-        text-decoration: none;
-        opacity: 1;
-
-      }
-    }
   }
 
   .nav-item{

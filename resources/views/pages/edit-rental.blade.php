@@ -17,7 +17,7 @@
             </div>
             <div class="form-group col-12 px-0" >
               {{-- <label for="description">Description</label> --}}
-              <textarea type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" rows="8" cols="80"></textarea>
+              <textarea type="text" class="form-control {{$errors->has('description') ? "border-danger" : "" }}" name = "description" rows="8" cols="80">{{$rental->description}}</textarea>
               {!! $errors->first('description', '<small class="form-text text-danger">:message</small>') !!}
             </div>
             <div class="col-12  px-0 d-flex flex-wrap">
